@@ -13,7 +13,7 @@ function interact(event) {
   if (classData !== null) { //checks if classData returns null
     var classLevel = classData.getLevel()
 
-    if(sneak && event.player.getPotionEffect(2) != 6){ //checks if the player is sneaking and if the player is not inflected with slowness strength 6
+    if(sneak && event.player.getPotionEffect(2) != 6 && classLevel >= requiredLevel){ //checks if the player is sneaking and if the player is not inflected with slowness strength 6 and is atleast the required level to steal from the NPC
       var rng = Math.random(); //generates a random number between 0 and 1
       var playerName = event.player.getName(); //gets the interacting players name
       var roll = ((5/833)*((classLevel/requiredLevel)+(classLevel-requiredLevel)))+(17/49)+rng
