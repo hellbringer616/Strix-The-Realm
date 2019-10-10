@@ -19,7 +19,7 @@ function interact(event) {
       var roll = ((5/833)*((classLevel/requiredLevel)+(classLevel-requiredLevel)))+(17/49)+rng
       if(roll >= 1){
         event.npc.executeCommand("retrieve 9999 3 " + playerName + "") //retrieve itemizer item of quantity and give to player
-        event.npc.executeCommand("nadmin exp add " + playerName + " thieving 8") //gives the player theiving XP
+        event.npc.executeCommand("nadmin exp add 8 " + playerName + " " +className + " " + className) //gives the player theiving XP
       }else{
         event.npc.say("Beg your pardon?!");
         event.player.damage(2);
