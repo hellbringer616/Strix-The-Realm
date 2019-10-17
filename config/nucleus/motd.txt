@@ -1,5 +1,5 @@
 &l&e[[&nWelcome to Strix&r&l&e]]
-&l&cAlpha &2v0.15.2
+&l&cAlpha &2v0.15.3
 &lRun the &3/char create %Chracter_Name% &l&fto get make your character!
 &rReport all issues to &4Hellbringer616 &r on either &dDiscord &ror &dGitHub
 &l&6SUGGESTIONS WELCOME :: ESPECIALLY WITH SKILLTREES
