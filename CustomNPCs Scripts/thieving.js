@@ -5,6 +5,7 @@ function interact(event) {
   ///// Config Start
   var requiredLevel = 1 //level required to steal
   var xP = 8 //XP per successful steal
+  var response = "Beg your Pardon?!"
   ///// Config End
   var sneak = event.player.isSneaking(); //is the player sneaking
   var className = "Thieving" //must be a string
@@ -24,6 +25,7 @@ function interact(event) {
         event.npc.executeCommand("retrieve 9999 3 " + playerName + "") //retrieve itemizer item of quantity and give to player
         event.npc.executeCommand("nadmin exp add " + playerName + " " + xP + " " + className + " " + className) //gives the player theiving XP
       }else{
+        event.npc.say(response);
         event.player.damage(2);
         event.player.addPotionEffect(2, 3, 6, true); //adds slowness of 3 seconds of level 6 (immobile) to player
       }
