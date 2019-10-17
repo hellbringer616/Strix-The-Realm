@@ -3,7 +3,7 @@ var RpgPlugin = Java.type("cz.neumimto.rpg.sponge.NtRpgPlugin");
 //On interact with NPC
 function interact(event) {
   var sneak = event.player.isSneaking(); //is the player sneaking
-  var className = "Combat" //must be a string
+  var className = "Theiving" //must be a string
   var uid = event.player.getUUID() //Get Player UUID string
   var JavaUUID = Java.type('java.util.UUID') //Magic?
   var character = RpgPlugin.GlobalScope.characterService.getCharacter(JavaUUID.fromString(uid)) //load NT-RPG Character service and get UUID than convert to Java UUID
