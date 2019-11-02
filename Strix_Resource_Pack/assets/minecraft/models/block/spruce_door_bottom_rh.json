@@ -1,10 +1,10 @@
 {
 	"__comment": "Designed by Sirfancybacon with Cubik Studio - https://cubik.studio",
 	"textures": {
-		"door_spruce": "door_spruce",
-		"door_spruce_metal": "door_spruce_metal"
+		"door_spruce": "blocks/door_spruce",
+		"door_spruce_metal": "blocks/door_spruce_metal"
 	},
-	"elements": [ 	 
+	"elements": [
 		{
 			"__comment": "Box3",
 			"from": [ 1, 0, 0 ],
