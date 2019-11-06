@@ -1,0 +1,1135 @@
+items=[
+#ORES 1-20
+    {
+        durability=0
+        id="1"
+        lore="Clumps of tin ore.\nUsed in forging of Bronze."
+        name="Tin Ore"
+        type="minecraft:coal"
+        unbreakable=false
+    },
+    {
+        durability=0
+        id="2"
+        lore="Clumps of copper ore.\nUsed in forging of Bronze."
+        name="Copper Ore"
+        type="minecraft:coal"
+        unbreakable=false
+    },
+    {
+        durability=0
+        id="3"
+        lore="Clumps of iron ore.\nUsed in forging of Iron."
+        name="Iron Ore"
+        type="minecraft:coal"
+        unbreakable=false
+    },
+    {
+        durability=0
+        id="4"
+        lore="Clumps of coal ore.\nUsed in forging of Steel."
+        name="Coal Ore"
+        type="minecraft:coal"
+        unbreakable=false
+    },
+    {
+        durability=0
+        id="5"
+        lore="Clumps of mithril ore.\nUsed in forging of Mithril."
+        name="Mithril Ore"
+        type="minecraft:diamond"
+        unbreakable=false
+    },
+#INGOTS 21-40
+    {
+        durability=0
+        id="21"
+        lore="An ingot of bronze.\nUsed in smithing."
+        name="Bronze Ingot"
+        type="minecraft:iron_ingot"
+        unbreakable=false
+    },
+    {
+        durability=0
+        id="22"
+        lore="An ingot of iron.\nUsed in smithing."
+        name="Iron Ingot"
+        type="minecraft:iron_ingot"
+        unbreakable=false
+    },
+    {
+        durability=0
+        id="23"
+        lore="An ingot of steel.\nUsed in smithing."
+        name="Steel Ingot"
+        type="minecraft:iron_ingot"
+        unbreakable=false
+    },
+    {
+        durability=0
+        id="24"
+        lore="An ingot of mithril.\nUsed in smithing."
+        name="Mithril Ingot"
+        type="minecraft:diamond"
+        unbreakable=false
+    },
+#LEATHERS/HIDES 41-60
+    {
+        durability=0
+        id="41"
+        lore="The hide of an animal.\nTan to create Leather."
+        name="Hide"
+        type="minecraft:Leather"
+        unbreakable=false
+    },
+    {
+        durability=0
+        id="42"
+        lore="Cloth pads stiched onto Leather.\nUsed in crafting."
+        name="Padded Leather"
+        type="minecraft:Leather"
+        unbreakable=false
+    },
+    {
+        durability=0
+        id="43"
+        lore="Leather reinforced with layers held together with studs.\nUsed in crafting."
+        name="Studded Leather"
+        type="minecraft:Leather"
+        unbreakable=false
+    },
+#Cloth 61-80
+    {
+        durability=0
+        id="61"
+        lore="Basic linen cloth.\nUsed in crafting."
+        name="Basic Cloth"
+        type="minecraft:paper"
+        unbreakable=false
+    },
+#Alchemy 100 - 199
+    {
+      durability=0
+      id="100"
+      lore="An empty bottle"
+      name="Empty Bottle"
+      type="minecraft:glass_bottle"
+      unbreakable=false
+    },
+    {
+      durability=0
+      id="101"
+      lore="A bottle filled with water"
+      name="Bottle of Water"
+      type="minecraft:potion{Potion:water}"
+      unbreakable=false
+    },
+    {
+      durability=0
+      id="102"
+      lore="A magical potion of healing"
+      name="Healing Potion"
+      type="minecraft:potion{Potion:healing}"
+      unbreakable=false
+    },
+#TOOLS
+    {
+        durability=0
+        miners: [
+          1
+        ]
+        id="1000"
+        lore="A standard tool, but effective."
+        name="Bronze Pick"
+        type="minecraft:wooden_pickaxe"
+        unbreakable=true
+    },
+    {
+        durability=0
+        enchants {
+            efficiency {
+                level=1
+            }
+        }
+        miners: [
+          2
+        ]
+        id="1001"
+        lore="A tool of ornate yet functional craftsmenship. \nfew tools crafted are equal."
+        name="Iron Pick"
+        type="minecraft:stone_pickaxe"
+        unbreakable=true
+    },
+    {
+        durability=0
+        enchants {
+            efficiency {
+                level=2
+            }
+            fortune {
+                level=1
+            }
+        }
+        miners: [
+          2
+        ]
+        id="1002"
+        lore="A tool of ornate yet functional craftsmenship. \nfew tools crafted are equal."
+        name="Steel Pick"
+        type="minecraft:iron_pickaxe"
+        unbreakable=true
+    },
+    {
+        durability=0
+        enchants {
+            efficiency {
+                level=3
+            }
+            fortune {
+                level=1
+            }
+        }
+        miners: [
+          3
+        ]
+        id="1011"
+        lore="No tool is of a suprior caste than this.\nyou'll be the envy of all miners."
+        name="Agni's Fortune"
+        type="minecraft:golden_pickaxe"
+        unbreakable=true
+    },
+    {
+        durability=0
+        enchants {
+            efficiency {
+                level=7
+            }
+            fortune {
+                level=2
+            }
+        }
+        miners: [
+          3
+        ]
+        id="1003"
+        lore="No tool is of a suprior caste than this.\nyou'll be the envy of all miners."
+        name="Mithril Pick"
+        type="minecraft:diamond_pickaxe"
+        unbreakable=true
+    },
+    {
+        durability=0
+        miners: [
+          1
+        ]
+        id="1020"
+        lore="An amateurs woodcutters tool."
+        name="Bronze Hatchet"
+        type="minecraft:wooden_axe"
+        unbreakable=true
+    },
+    {
+        durability=0
+        enchants {
+            efficiency {
+                level=1
+            }
+        }
+        miners: [
+          2
+        ]
+        id="1021"
+        lore="A standard Woodcutters tool. \nEffective at it's job."
+        name="Iron Hatchet"
+        type="minecraft:stone_axe"
+        unbreakable=true
+    },
+    {
+        durability=0
+        enchants {
+            efficiency {
+                level=2
+            }
+            fortune {
+                level=1
+            }
+        }
+        miners: [
+          2
+        ]
+        id="1022"
+        lore="A hefty and razor sharp woodcutters tool.\nThe tool of your average forrester."
+        name="Steel Hatchet"
+        type="minecraft:iron_axe"
+        unbreakable=true
+    },
+    {
+        durability=0
+        enchants {
+            efficiency {
+                level=3
+            }
+            fortune {
+                level=1
+            }
+        }
+        miners: [
+          3
+        ]
+        id="1023"
+        lore="Ornate, well weighted and razor sharp\nyou'll be the envy of most forresters."
+        name="Mithril Hatchet"
+        type="minecraft:diamond_axe"
+        unbreakable=true
+    },
+#SWORDS
+    {
+        durability=262
+        id="1100"
+        lore="A low quality sword.\nMade of bronze."
+        name="Bronze Longsword"
+        type="minecraft:wooden_sword"
+        unbreakable=false
+    },
+    {
+        durability=393
+        id="1101"
+        lore="A quality sword.\nMade of iron."
+        name="Iron Longsword"
+        type="minecraft:stone_sword"
+        unbreakable=false
+    },
+    {
+        durability=655
+        id="1102"
+        lore="A high quality sword.\nMade of Steel."
+        name="Steel Longsword"
+        type="minecraft:iron_sword"
+        unbreakable=false
+    },
+    {
+        durability=1310
+        id="1103"
+        lore="A masterwork quality sword.\nMade of mythical ore."
+        name="Mithril Longsword"
+        type="minecraft:diamond_sword"
+        unbreakable=false
+    },
+#MACES
+    {
+        durability=262
+        id="1200"
+        lore="A low quality mace.\nMade of bronze."
+        name="Bronze Mace"
+        type="minecraft:wooden_shovel"
+        unbreakable=false
+    },
+    {
+        durability=393
+        id="1201"
+        lore="A quality mace.\nMade of iron."
+        name="Iron Mace"
+        type="minecraft:stone_shovel"
+        unbreakable=false
+    },
+    {
+        durability=655
+        id="1202"
+        lore="A high quality mace.\nMade of Steel."
+        name="Steel Mace"
+        type="minecraft:iron_shovel"
+        unbreakable=false
+    },
+    {
+        durability=1310
+        id="1203"
+        lore="A masterwork quality mace.\nMade of mythical ore."
+        name="Diamond Mace"
+        type="minecraft:diamond_shovel"
+        unbreakable=false
+    },
+#DAGGERS
+    {
+        durability=262
+        id="1300"
+        lore="A low quality dagger.\nMade of bronze."
+        name="Bronze Dagger"
+        type="minecraft:wooden_hoe"
+        unbreakable=false
+    },
+    {
+        durability=393
+        id="1301"
+        lore="A quality dagger.\nMade of iron."
+        name="Iron Dagger"
+        type="minecraft:stone_hoe"
+        unbreakable=false
+    },
+    {
+        durability=655
+        id="1302"
+        lore="A high quality dagger.\nMade of Steel."
+        name="Steel Dagger"
+        type="minecraft:iron_hoe"
+        unbreakable=false
+    },
+    {
+        durability=1310
+        id="1303"
+        lore="A masterwork quality dagger.\nMade of mythical ore."
+        name="Diamond Dagger"
+        type="minecraft:diamond_hoe"
+        unbreakable=false
+    },
+    {
+        durability=1310
+        enchants {
+            smite {
+                level=5
+            }
+        }
+        id="1414"
+        lore="a legendary Scythe wielded by The Maid of Orleans\nMade of mythical alloy that shimmers in holy light"
+        name="Joan of Arc"
+        type="minecraft:diamond_axe"
+        unbreakable=false
+    },
+#BOWS
+    {
+        durability=384
+        id="4001"
+        lore="A bow made of flexible wood."
+        name="Simple Bow"
+        type="minecraft:bow"
+        unbreakable=false
+    },
+    {
+        durability=384
+        enchants {
+            power {
+                level=1
+            }
+        }
+        id="4002"
+        lore="A bow made of robust yet flexible wood."
+        name="Strong Bow"
+        type="minecraft:bow"
+        unbreakable=false
+    },
+    {
+        durability=576
+        enchants {
+            power {
+                level=2
+            }
+        }
+        id="4003"
+        lore="A bow made of rigid yet springy wood."
+        name="Powerful Bow"
+        type="minecraft:bow"
+        unbreakable=false
+    },
+    {
+        durability=864
+        enchants {
+            power {
+                level=3
+            }
+        }
+        id="4004"
+        lore="A bow made of a magically enchanted wood."
+        name="Enchanted Bow"
+        type="minecraft:bow"
+        unbreakable=false
+    },
+    {
+        durability=0
+        enchants {
+            infinity {
+                level=1
+            }
+        }
+        id="4010"
+        lore="A bow made of arcane energy.\nProvides unlimited arrows.\n Requires atleast 1 Arrow."
+        name="Arcane Bow"
+        type="minecraft:bow"
+        unbreakable=true
+    },
+    {
+        durability=0
+        enchants {
+            infinity {
+                level=1
+            }
+            power {
+                level=1
+            }
+        }
+        id="4011"
+        lore="A bow made of mystical energy.\nProvides unlimited arrows.\n Requires atleast 1 Arrow."
+        name="Mystic Bow"
+        type="minecraft:bow"
+        unbreakable=true
+    },
+#WANDS
+    {
+        durability=131
+        id="5000"
+        lore="A Basically a magical stick."
+        name="Simple Wand"
+        type="minecraft:wooden_shovel"
+        unbreakable=false
+    },
+    {
+        durability=262
+        id="5001"
+        lore="A magical stick with a gemstone."
+        name="Basic Wand"
+        type="minecraft:stone_shovel"
+        unbreakable=false
+    },
+    {
+        durability=393
+        id="5002"
+        lore="The wand of an amature Mage."
+        name="Apprentice Wand"
+        type="minecraft:iron_shovel"
+        unbreakable=false
+    },
+    {
+        durability=655
+        id="5003"
+        lore="The wand of a true Mage."
+        name="Mage Wand"
+        type="minecraft:iron_shovel"
+        unbreakable=false
+    },
+    {
+        durability=1310
+        id="5004"
+        lore="The wand of the highest power."
+        name="Archmage Wand"
+        type="minecraft:diamond_shovel"
+        unbreakable=false
+    },
+#MAGE ARMOR
+    {
+        durability=72
+        id="7100"
+        lore="Cloth slippers.\nWearable by Mages."
+        name="Slippers"
+        type="minecraft:leather_boots"
+        unbreakable=false
+    },
+    {
+        durability=66
+        id="7101"
+        lore="The hood to a cloth robe.\nWearable by Mages."
+        name="Robe Hood"
+        type="minecraft:leather_helmet"
+        unbreakable=false
+    },
+    {
+        durability=85
+        id="7102"
+        lore="The bottom piece to cloth robes.\nWearable by Mages."
+        name="Robe Bottom"
+        type="minecraft:leather_leggings"
+        unbreakable=false
+    },
+    {
+        durability=99
+        id="7103"
+        lore="The top piece to cloth robes.\nWearable by Mages."
+        name="Enchanged Robe Top"
+        type="minecraft:leather_chestplate"
+        unbreakable=false
+    },
+    {
+        durability=72
+        attributes: [
+          {
+            name:"generic.armor"
+            amount : 1
+            operation : 0
+            slot: "feet"
+          }
+        ]
+        id="7110"
+        lore="Footware for a mage.\nWearable by Mages."
+        name="Enchanted Slippers"
+        type="minecraft:leather_boots"
+        unbreakable=false
+    },
+    {
+        durability=66
+        attributes: [
+          {
+            name:"generic.armor"
+            amount : 1
+            operation : 0
+            slot: "head"
+          }
+        ]
+        id="7111"
+        lore="The hood to a enchanted robes.\nWearable by Mages."
+        name="Enchanted Robe Hood"
+        type="minecraft:leather_helmet"
+        unbreakable=false
+    },
+    {
+        durability=85
+        attributes: [
+          {
+            name:"generic.armor"
+            amount : 1
+            operation : 0
+            slot: "legs"
+          }
+        ]
+        id="7112"
+        lore="The bottom piece to Enchanted robes.\nWearable by Mages."
+        name="Enchanted Robe Bottom"
+        type="minecraft:leather_leggings"
+        unbreakable=false
+    },
+    {
+        durability=99
+        attributes: [
+          {
+            name:"generic.armor"
+            amount : 1
+            operation : 0
+            slot: "chest"
+          }
+        ]
+        id="7113"
+        lore="The top piece to Enchanted robes.\nWearable by Mages."
+        name="Enchanted Robe Top"
+        type="minecraft:leather_chestplate"
+        unbreakable=false
+    },
+    {
+        durability=144
+        attributes: [
+          {
+            name:"generic.armor"
+            amount : 2
+            operation : 0
+            slot: "feet"
+          }
+        ]
+        id="7120"
+        lore="Footware of a powerful mage.\nWearable by Mages."
+        name="Mystic Slippers"
+        type="minecraft:golden_boots"
+        unbreakable=false
+    },
+    {
+        durability=131
+        attributes: [
+          {
+            name:"generic.armor"
+            amount : 2
+            operation : 0
+            slot: "head"
+          }
+        ]
+        id="7121"
+        lore="Headdress of a powerful mage.\nWearable by Mages."
+        name="Mystic Hood"
+        type="minecraft:golden_helmet"
+        unbreakable=false
+    },
+    {
+        durability=170
+        attributes: [
+          {
+            name:"generic.armor"
+            amount : 2
+            operation : 0
+            slot: "legs"
+          }
+        ]
+        id="7122"
+        lore="The bottom of powerful magic robes\nWearable by Mages."
+        name="Mystic Robe Bottom"
+        type="minecraft:golden_leggings"
+        unbreakable=false
+    },
+    {
+        durability=197
+        attributes: [
+          {
+            name:"generic.armor"
+            amount : 2
+            operation : 0
+            slot: "chest"
+          }
+        ]
+        id="7123"
+        lore="The top of powerful magic robes\nWearable by Mages."
+        name="Mystic Robe Top"
+        type="minecraft:golden_chestplate"
+        unbreakable=false
+    },
+#LEATHER ARMOR
+    {
+        durability=72
+        attributes: [
+          {
+            name:"generic.armor"
+            amount : 1
+            operation : 0
+            slot: "feet"
+          }
+        ]
+        id="8100"
+        lore="Boots made of Leather.\nWearable by Archers."
+        name="Leather Sabatons"
+        type="minecraft:leather_boots"
+        unbreakable=false
+    },
+    {
+        durability=66
+        attributes: [
+          {
+            name:"generic.armor"
+            amount : 1
+            operation : 0
+            slot: "head"
+          }
+        ]
+        id="8101"
+        lore="Helmet made of Leather.\nWearable by Archers."
+        name="Leather Helm"
+        type="minecraft:leather_helmet"
+        unbreakable=false
+    },
+    {
+        durability=85
+        attributes: [
+          {
+            name:"generic.armor"
+            amount : 1
+            operation : 0
+            slot: "legs"
+          }
+        ]
+        id="8102"
+        lore="Leggings made of Leather.\nWearable by Archers."
+        name="Leather Greaves"
+        type="minecraft:leather_leggings"
+        unbreakable=false
+    },
+    {
+        durability=99
+        attributes: [
+          {
+            name:"generic.armor"
+            amount : 1
+            operation : 0
+            slot: "chest"
+          }
+        ]
+        id="8103"
+        lore="Vest made of Leather.\nWearable by Archers."
+        name="Leather Harness"
+        type="minecraft:leather_chestplate"
+        unbreakable=false
+    },
+    {
+        durability=72
+        attributes: [
+          {
+            name:"generic.armor"
+            amount : 2
+            operation : 0
+            slot: "feet"
+          }
+        ]
+        id="8110"
+        lore="Boots made of Leather and padded cloth.\nWearable by Archers."
+        name="Padded Leather Sabatons"
+        type="minecraft:leather_boots"
+        unbreakable=false
+    },
+    {
+        durability=66
+        attributes: [
+          {
+            name:"generic.armor"
+            amount : 2
+            operation : 0
+            slot: "head"
+          }
+        ]
+        id="8111"
+        lore="Helmet made of Leather and padded cloth.\nWearable by Archers."
+        name="Padded Leather Helm"
+        type="minecraft:leather_helmet"
+        unbreakable=false
+    },
+    {
+        durability=85
+        attributes: [
+          {
+            name:"generic.armor"
+            amount : 2
+            operation : 0
+            slot: "legs"
+          }
+        ]
+        id="8112"
+        lore="Leggings made of Leather and padded cloth.\nWearable by Archers."
+        name="Padded Leather Greaves"
+        type="minecraft:leather_leggings"
+        unbreakable=false
+    },
+    {
+        durability=99
+        attributes: [
+          {
+            name:"generic.armor"
+            amount : 2
+            operation : 0
+            slot: "chest"
+          }
+        ]
+        id="8113"
+        lore="Vest made of Leather and padded cloth.\nWearable by Archers."
+        name="Padded Leather Harness"
+        type="minecraft:leather_chestplate"
+        unbreakable=false
+    },
+    {
+        durability=144
+        attributes: [
+          {
+            name:"generic.armor"
+            amount : 3
+            operation : 0
+            slot: "feet"
+          }
+        ]
+        id="8120"
+        lore="Boots made of reinforced leather.\nWearable by Archers."
+        name="Reinforced Leather Boots"
+        type="minecraft:chainmail_boots"
+        unbreakable=false
+    },
+    {
+        durability=131
+        attributes: [
+          {
+            name:"generic.armor"
+            amount : 3
+            operation : 0
+            slot: "head"
+          }
+        ]
+        id="8121"
+        lore="Helmet made of reinforced leather.\nWearable by Archers."
+        name="Reinforced Leather Helm"
+        type="minecraft:chainmail_helmet"
+        unbreakable=false
+    },
+    {
+        durability=170
+        attributes: [
+          {
+            name:"generic.armor"
+            amount : 3
+            operation : 0
+            slot: "legs"
+          }
+        ]
+        id="8122"
+        lore="Leggings made of reinforced leather.\nWearable by Archers."
+        name="Reinforced Leather Legs"
+        type="minecraft:chainmail_leggings"
+        unbreakable=false
+    },
+    {
+        durability=197
+        attributes: [
+          {
+            name:"generic.armor"
+            amount : 3
+            operation : 0
+            slot: "chest"
+          }
+        ]
+        id="8123"
+        lore="Platebody made of reinforced leather.\nWearable by Archers."
+        name="Reinforced Leather Chest"
+        type="minecraft:chainmail_chestplate"
+        unbreakable=false
+    },
+#METAL ARMOR
+    {
+        durability=144
+        attributes: [
+          {
+            name:"generic.armor"
+            amount : 2
+            operation : 0
+            slot: "feet"
+          }
+        ]
+        id="9100"
+        lore="Boots made of Bronze"
+        name="Bronze Sabatons"
+        type="minecraft:golden_boots"
+        unbreakable=false
+    },
+    {
+        durability=131
+        attributes: [
+          {
+            name:"generic.armor"
+            amount : 2
+            operation : 0
+            slot: "head"
+          }
+        ]
+        id="9101"
+        lore="Helmet made of Bronze"
+        name="Bronze Helm"
+        type="minecraft:golden_helmet"
+        unbreakable=false
+    },
+    {
+        durability=170
+        attributes: [
+          {
+            name:"generic.armor"
+            amount : 2
+            operation : 0
+            slot: "legs"
+          }
+        ]
+        id="9102"
+        lore="Leggings made of Bronze"
+        name="Bronze Legs"
+        type="minecraft:golden_leggings"
+        unbreakable=false
+    },
+    {
+        durability=197
+        attributes: [
+          {
+            name:"generic.armor"
+            amount : 2
+            operation : 0
+            slot: "chest"
+          }
+        ]
+        id="9103"
+        lore="Platebody made of Bronze"
+        name="Bronze Plate"
+        type="minecraft:golden_chestplate"
+        unbreakable=false
+    },
+    {
+        durability=216
+        attributes: [
+          {
+            name:"generic.armor"
+            amount : 3
+            operation : 0
+            slot: "feet"
+          }
+        ]
+        id="9110"
+        lore="Boots made of Iron"
+        name="Iron Sabatons"
+        type="minecraft:golden_boots"
+        unbreakable=false
+    },
+    {
+        durability=197
+        attributes: [
+          {
+            name:"generic.armor"
+            amount : 3
+            operation : 0
+            slot: "head"
+          }
+        ]
+        id="9111"
+        lore="Helmet made of Iron"
+        name="Iron Helm"
+        type="minecraft:golden_helmet"
+        unbreakable=false
+    },
+    {
+        durability=255
+        attributes: [
+          {
+            name:"generic.armor"
+            amount : 3
+            operation : 0
+            slot: "legs"
+          }
+        ]
+        id="9112"
+        lore="Leggings made of Iron"
+        name="Iron Legs"
+        type="minecraft:golden_leggings"
+        unbreakable=false
+    },
+    {
+        durability=295
+        attributes: [
+          {
+            name:"generic.armor"
+            amount : 3
+            operation : 0
+            slot: "chest"
+          }
+        ]
+        id="9113"
+        lore="Platebody made of Iron"
+        name="Iron Plate"
+        type="minecraft:golden_chestplate"
+        unbreakable=false
+    },
+    {
+        durability=295
+        attributes: [
+          {
+            name:"generic.armor"
+            amount : 4
+            operation : 0
+            slot: "feet"
+          }
+        ]
+        id="9120"
+        lore="Boots made of Steel"
+        name="Steel Sabatons"
+        type="minecraft:iron_boots"
+        unbreakable=false
+    },
+    {
+        durability=262
+        attributes: [
+          {
+            name:"generic.armor"
+            amount : 4
+            operation : 0
+            slot: "head"
+          }
+        ]
+        id="9121"
+        lore="a Helmet made of Steel"
+        name="Steel Helm"
+        type="minecraft:iron_helmet"
+        unbreakable=false
+    },
+    {
+        durability=360
+        attributes: [
+          {
+            name:"generic.armor"
+            amount : 4
+            operation : 0
+            slot: "legs"
+          }
+        ]
+        id="9122"
+        lore="Leggings made of Steel"
+        name="Steel Legs"
+        type="minecraft:iron_leggings"
+        unbreakable=false
+    },
+    {
+        durability=426
+        attributes: [
+          {
+            name:"generic.armor"
+            amount : 4
+            operation : 0
+            slot: "chest"
+          }
+        ]
+        id="9123"
+        lore="Platebody made of Steel."
+        name="Steel Chestplate"
+        type="minecraft:iron_chestplate"
+        unbreakable=flase
+    },
+    {
+        durability=472
+        attributes: [
+          {
+            name:"generic.armor"
+            amount : 5
+            operation : 0
+            slot: "feet"
+          }
+        ]
+        id="9130"
+        lore="Boots made of Mithril"
+        name="Mithril Sabatons"
+        type="minecraft:diamond_boots"
+        unbreakable=false
+    },
+    {
+        durability=419
+        attributes: [
+          {
+            name:"generic.armor"
+            amount : 5
+            operation : 0
+            slot: "head"
+          }
+        ]
+        id="9131"
+        lore="a Helmet made of Mithril"
+        name="Mithril Helm"
+        type="minecraft:diamond_helmet"
+        unbreakable=false
+    },
+    {
+        durability=576
+        attributes: [
+          {
+            name:"generic.armor"
+            amount : 5
+            operation : 0
+            slot: "legs"
+          }
+        ]
+        id="9132"
+        lore="Leggings made of Mithril"
+        name="Mithril Legs"
+        type="minecraft:diamond_leggings"
+        unbreakable=false
+    },
+    {
+        durability=681
+        attributes: [
+          {
+            name:"generic.armor"
+            amount : 5
+            operation : 0
+            slot: "chest"
+          }
+        ]
+        id="9133"
+        lore="Platebody made of Mithril."
+        name="Mithril Chestplate"
+        type="minecraft:diamond_chestplate"
+        unbreakable=flase
+    },
+    {
+        durability=0
+        id="9999"
+        lore="Currency.\nStamped with the Symbol of Sigma."
+        name="Coin"
+        type="minecraft:gold_nugget"
+        unbreakable=false
+    },
+
+]
