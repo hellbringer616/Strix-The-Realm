@@ -2,7 +2,7 @@ var Sponge = Java.type("org.spongepowered.api.Sponge");
 var ItemType = Java.type("org.spongepowered.api.item.ItemType");
 var ItemTypes = Java.type("org.spongepowered.api.item.ItemTypes");
 var ItemStack = Java.type("org.spongepowered.api.item.inventory.ItemStack");
-var ItemizerItemService = Java.type("org.spongepowered.api.Sponge").getServiceManager().provideUnchecked(Java.type("com.onaple.itemizer.utils.itemservice").class);
+var ItemizerItemService = Java.type("com.onaple.itemizer.utils.ItemService");
 var QueryOperationTypes = Java.type("org.spongepowered.api.item.inventory.query.QueryOperationTypes");
 
 var Itemizer = {
