@@ -19,10 +19,10 @@ function died(event) {
     //set variables to get the Player Name that last damaged the NPC and the NPC's Maximum Health
 
     var playerArray = event.npc.tempdata.get("playerNamesArray");
-    var maxHealth = event.npc.getMaxHealth();
+    var npcExp = event.npc.inventory.getExpMax();
     //if the death event source and it's type are PLAYER run the command, else null
         for(var i = 0; i < playerArray.length; i++) {
-        var xp = maxHealth / 2 / playerArray.length;
+        var xp = npcExp / playerArray.length;
         event.npc.executeCommand("nadmin exp add " +  playerArray[i] + " " + xp + " PVE Combat");
   }
 }
