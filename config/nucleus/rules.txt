@@ -1,3 +1,2 @@
-&a1: Be respectful.
-&a2: Be ethical.
-&a3: Use common sense.
+use P to open the Character Menu
+[NumPad]+ to open the ModTools Menu
