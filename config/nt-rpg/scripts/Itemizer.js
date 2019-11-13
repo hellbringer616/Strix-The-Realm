@@ -13,7 +13,7 @@ var Itemizer = {
         @return Sponge ItemStack or empty
     */
     retrieve: function(id) {
-        var optional = ItemizerItemService.retrieve(id);
+        var optional = ItemizerItemService.retrieve(id, 1);
         return optional.orElse(ItemStack.empty());
     },
 
