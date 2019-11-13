@@ -13,8 +13,7 @@ var Itemizer = {
         @return Sponge ItemStack or empty
     */
     retrieve: function(id) {
-        var optional = ItemizerItemService.retrieve(id, 1);
-        return optional.orElse(ItemStack.empty());
+        return ItemizerItemService.retrieve(id, 1);
     },
 
     /**
@@ -23,8 +22,7 @@ var Itemizer = {
         @return Sponge ItemStack from pool or empty
     */
     fetch: function(poolId) {
-        var optional = ItemizerItemService.fetch(id);
-        return optional.orElse(ItemStack.empty());
+        return ItemizerItemService.fetch(id);
     },
 
     /**
