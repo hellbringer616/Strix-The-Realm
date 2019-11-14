@@ -15,6 +15,7 @@ function clicked(event){
   var character = RpgPlugin.GlobalScope.characterService.getCharacter(JavaUUID.fromString(uid)); //load NT-RPG Character service and get UUID than convert to Java UUID
   var className = "Metallurgy"; //must be a string
   var classData = character.getClasses().get(className) //gets class data from character
+  var requiredLevel = 1 //must be an interger
   //**//
   var heldItem = event.player.mainhandItem.displayName; //return the display name of a held item
   var isBronzePick = heldItem.indexOf("Bronze Pick") != -1; //checks if held item has the display name of "bronze Pick"
@@ -34,7 +35,7 @@ function clicked(event){
           event.player.message("&eYou cannot mint this right now."); //does not work
         }else{
           //* checks to see if the item is a pickaxe; otherwise tells the player they cannot mine
-        if (heldItem.indexOf("Pick")){
+        if (heldItem.indexOf("Pick") && classLevel >= requiredLevel){
             //** Checks which pickaxe the player is holding and adjusts damage accordingly based on class level and pickaxe type.
           if (isBronzePick){
             var damage = 1+(classLevel/10)*1;
