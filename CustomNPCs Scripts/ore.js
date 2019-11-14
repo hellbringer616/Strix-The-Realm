@@ -17,10 +17,12 @@ function clicked(event){
   if(classData !== null) { //checks if classData returns null
     var classLevel = classData.getLevel()
 
-      //if health is less than 1 change model to stone
+      //if health is less than 1 change model to stone and starts a timer
       if(health < 1){
           event.block.setModel("minecraft:stone")
           event.block.timers.start(1, 2400, false);
+          event.setCanceled(true);
+          event.player.message("&eYou cannot mint this right now.");
         }else{
         if (heldItem.indexOf("Pick")){
           if (isBronzePick){
