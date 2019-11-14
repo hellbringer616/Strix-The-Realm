@@ -11,9 +11,11 @@ function init(event){
 //When block is left clicked
 function clicked(event){
   var uid = event.player.getUUID(); //Get Player UUID string
+  //**// NT-RPG stuff
   var character = RpgPlugin.GlobalScope.characterService.getCharacter(JavaUUID.fromString(uid)); //load NT-RPG Character service and get UUID than convert to Java UUID
   var className = "Metallurgy"; //must be a string
   var classData = character.getClasses().get(className) //gets class data from character
+  //**//
   var heldItem = event.player.mainhandItem.displayName; //return the display name of a held item
   var isBronzePick = heldItem.indexOf("Bronze Pick") != -1; //checks if held item has the display name of "bronze Pick"
   var isIronPick = heldItem.indexOf("Iron Pick") != -1; //checks if held item has the display name of "Iron Pick"
@@ -22,7 +24,7 @@ function clicked(event){
   var health = event.block.tempdata.get("health");
 
   if(classData !== null) { //checks if classData returns null
-    var classLevel = classData.getLevel();
+    var classLevel = classData.getLevel(); //gets level from defined Character Class
 
       //if health is less than 1 change model to stone and starts a timer
       if(health < 1){
