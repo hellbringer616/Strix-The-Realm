@@ -31,9 +31,6 @@ function clicked(event){
 
       //if health is less than 1 change model to stone and starts a timer
       if(health < 1){
-          event.block.setModel("minecraft:stone");
-          event.block.timers.start(1, 2400, false);
-          event.block.executeCommand(loot + playerName); //retrieve itemizer item of quantity and give to player
           event.player.message("&eYou cannot mint this right now."); //does not work
         }else{
           //* checks to see if the item is a pickaxe; otherwise tells the player they cannot mine
@@ -42,22 +39,42 @@ function clicked(event){
           if (isBronzePick){
             var damage = 1+(classLevel/10)*1;
             var health = health - damage;
-          event.block.tempdata.put("health",health);
+            event.block.tempdata.put("health",health);
+            if(health < 1){
+              event.block.executeCommand(loot + playerName); //retrieve itemizer item of quantity and give to player
+              event.block.setModel("minecraft:stone");
+              event.block.timers.start(1, 2400, false);
+            }
         }
           if (isIronPick){
             var damage = 1+(classLevel/10)*1.1;
             var health = health - damage;
-          event.block.tempdata.put("health",health);
+            event.block.tempdata.put("health",health);
+            if(health < 1){
+              event.block.executeCommand(loot + playerName); //retrieve itemizer item of quantity and give to player
+              event.block.setModel("minecraft:stone");
+              event.block.timers.start(1, 2400, false);
+            }
         }
           if (isSteelPick){
             var damage = 1+(classLevel/10)*1.15;
             var health = health - damage;
-          event.block.tempdata.put("health",health);
+            event.block.tempdata.put("health",health);
+            if(health < 1){
+              event.block.executeCommand(loot + playerName); //retrieve itemizer item of quantity and give to player
+              event.block.setModel("minecraft:stone");
+              event.block.timers.start(1, 2400, false);
+            }
         }
           if (isMithrilPick){
             var damage = 1+(classLevel/10)*1.2;
             var health = health - damage;
-          event.block.tempdata.put("health",health);
+            event.block.tempdata.put("health",health);
+            if(health < 1){
+              event.block.executeCommand(loot + playerName); //retrieve itemizer item of quantity and give to player
+              event.block.setModel("minecraft:stone");
+              event.block.timers.start(1, 2400, false);
+            }
         }
             //**
         }else{
