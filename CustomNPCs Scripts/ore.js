@@ -1,4 +1,4 @@
-var RpgPlugin = Java.type("cz.neumimto.rpg.sponge.NtRpgPlugin");
+var RpgPlugin = Java.type("cz.neumimto.rpg.sponge.NtRpgPlugin"); //load NT-RPG API
 function init(event){
   //set block model to stone
      event.block.setModel("minecraft:stone")
@@ -9,16 +9,15 @@ function init(event){
 }
 //When block is left clicked
 function clicked(event){
-  var className = "Metallurgy" //must be a string
   var uid = event.player.getUUID(); //Get Player UUID string
   var JavaUUID = Java.type('java.util.UUID'); //Magic?
   var character = RpgPlugin.GlobalScope.characterService.getCharacter(JavaUUID.fromString(uid)) //load NT-RPG Character service and get UUID than convert to Java UUID
+  var className = "Metallurgy" //must be a string
   var classData = character.getClasses().get(className) //gets class data from character
   var heldItem = event.player.mainhandItem.displayName; //return the display name of a held item
   var isBronzePick = heldItem.indexOf("Bronze Pick") != -1; //checks if held item has the display name of "bronze Pick"
   var isIronPick = heldItem.indexOf("Iron Pick") != -1; //checks if held item has the display name of "Iron Pick"
   var health = event.block.tempdata.get("health");
-  var classData = character.getClasses().get(className) //gets class data from NT-RPG character
 
   if(classData !== null) { //checks if classData returns null
     var classLevel = classData.getLevel()
