@@ -23,6 +23,8 @@ function clicked(event){
   var isSteelPick = heldItem.indexOf("Steel Pick") != -1; //checks if held item has the display name of "Steel Pick"
   var isMithrilPick = heldItem.indexOf("Mithril Pick") != -1; //checks if held item has the display name of "Mithril Pick"
   var health = event.block.tempdata.get("health");
+  var loot = "retrieve 1 1 "; //Must be a string: Use Itemizer function (retrieve for single item, fetch for item pool) itemID from Itemizer, and quantity **MUST HAVE A LEADING SPACE**
+  var playerName = event.player.getName();
 
   if(classData !== null) { //checks if classData returns null
     var classLevel = classData.getLevel(); //gets level from defined Character Class
@@ -31,7 +33,7 @@ function clicked(event){
       if(health < 1){
           event.block.setModel("minecraft:stone");
           event.block.timers.start(1, 2400, false);
-          event.setCanceled(true); //does not work
+          event.block.executeCommand(loot + playerName); //retrieve itemizer item of quantity and give to player
           event.player.message("&eYou cannot mint this right now."); //does not work
         }else{
           //* checks to see if the item is a pickaxe; otherwise tells the player they cannot mine
