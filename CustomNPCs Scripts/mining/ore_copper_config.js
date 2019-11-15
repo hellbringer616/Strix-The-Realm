@@ -1,6 +1,6 @@
 function init(event){
     var model = "minecraft:stone" //must be a string; is the block ID of the model
-    var texture = 3 //Optional; must be an integer; interger is equal to the block varient.
+    var texture = 2 //Optional; must be an integer; interger is equal to the block varient.
     var durability = 20;
     var loot = "retrieve 2 1 "; //Must be a string: Use Itemizer function (retrieve for single item, fetch for item pool) itemID from Itemizer, and quantity **MUST HAVE A LEADING SPACE**
     var requiredLevel = 1; //Must be an integer
