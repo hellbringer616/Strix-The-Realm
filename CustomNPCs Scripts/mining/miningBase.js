@@ -31,6 +31,10 @@ function clicked(event){
     event.block.executeCommand(loot + playerName); //retrieve itemizer item of quantity and give to player
     event.block.executeCommand("nadmin exp add " + playerName + " " + xP + " " + " metallurgy metallurgy") //execute command to add experience to a class
     event.block.setModel("minecraft:stone"); //set block model to regular stone. NOTE: Does not work with Optifine.
+    //checks to see if there is a timer of 1 and stops it if there is one.
+    if(event.block.timers.has(1)){
+      event.block.timers.stop(1);
+    }
     event.block.timers.start(1, 2400, false); //sets a timer that executes a function after 2 minutes
   }
   ///***///
@@ -43,7 +47,7 @@ function clicked(event){
           event.player.message("&eYou cannot mine this right now."); //does not work
         }else{
           //* checks to see if the item is a pickaxe; otherwise tells the player they cannot mine
-        if (heldItem.indexOf("Pick") && classLevel >= requiredLevel){
+        if (classLevel >= requiredLevel){
             //** Checks which pickaxe the player is holding and adjusts damage accordingly based on class level and pickaxe type.
           if (isBronzePick){
             var damage = 1+(classLevel/10)*1;
@@ -79,7 +83,7 @@ function clicked(event){
         }
             //**//
         }else{
-        event.player.message("&eYou need a Pickaxe to mine.");
+        event.player.message("&eYou must be at least level &c"+requiredLevel+" &eto mine.");
         //*//
         }
       }
@@ -89,8 +93,11 @@ function clicked(event){
 }
 //after the timer is triggered; sets the block texture to Granite and sets durability back to 20
 function timer(event){
+  var model = event.block.tempdata.get("model");
+  var texture = event.block.tempdata.get("texture");
      event.block.setModel(model);
      event.block.model.setItemDamage(texture);
-   var durability = 20;
-   event.block.tempdata.put("durability",durability);
+     var durability = 20;
+     event.block.tempdata.put("durability",durability);
+     event.block.timers.stop(1);
 }
