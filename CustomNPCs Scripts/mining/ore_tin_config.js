@@ -8,6 +8,7 @@ function init(event){
     var time = 1200 //must be an integer; time in ticks (20 ticks per second) for block respawn variable
         event.block.setModel(model); //sets the model of the block
         event.block.model.setItemDamage(texture); //sets the texture of the block
+        event.block.setHardness(-1); //sets hardness to -1 making the block unbreakable
         event.block.tempdata.put("model",model);
         event.block.tempdata.put("texture",texture);
         event.block.tempdata.put("durability",durability);
