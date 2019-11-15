@@ -12,12 +12,12 @@ function joinClasses(join){
         event.npc.executeCommand("nadmin invoke "+playerName+" char choose class "+classesArray[i]+"");
       }
     }
-}
+  }
 
     if(character.getName() != playerName){
         event.npc.executeCommand("nadmin invoke "+playerName+" char create "+playerName+"");
         event.npc.executeCommand("nadmin invoke "+playerName+" char switch "+playerName+"");
-        delay(2, joinClasses());
+        event.npc.say("talk to me again! Character not initialized");
     }else{
       joinClasses();
     }
