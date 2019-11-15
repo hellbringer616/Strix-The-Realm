@@ -10,13 +10,18 @@ function clicked(event){
   var requiredLevel = event.block.tempdata.get("requiredLevel");
   var xP = event.block.tempdata.get("xP");
   //**//
+
+  //***// load config from initialize tempdata
+  var model = event.block.tempdata.put("model");
+  var texture = event.block.tempdata.put("texture");
+  var durability = event.block.tempdata.get("durability");
+  var loot = event.block.tempdata.get("loot");
+  //***//
   var heldItem = event.player.mainhandItem.displayName; //return the display name of a held item
   var isBronzePick = heldItem.indexOf("Bronze Pick") != -1; //checks if held item has the display name of "bronze Pick"
   var isIronPick = heldItem.indexOf("Iron Pick") != -1; //checks if held item has the display name of "Iron Pick"
   var isSteelPick = heldItem.indexOf("Steel Pick") != -1; //checks if held item has the display name of "Steel Pick"
   var isMithrilPick = heldItem.indexOf("Mithril Pick") != -1; //checks if held item has the display name of "Mithril Pick"
-  var durability = event.block.tempdata.get("durability");
-  var loot = event.block.tempdata.get("loot");
   var playerName = event.player.getName();
 
   if(classData !== null) { //checks if classData returns null
@@ -85,8 +90,8 @@ function clicked(event){
 }
 //after the timer is triggered; sets the block texture to Granite and sets durability back to 20
 function timer(event){
-     event.block.setModel("minecraft:stone");
-     event.block.model.setItemDamage(1);
+     event.block.setModel(model);
+     event.block.model.setItemDamage(texture);
    var durability = 20;
    event.block.tempdata.put("durability",durability);
 }
