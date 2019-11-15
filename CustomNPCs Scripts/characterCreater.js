@@ -20,5 +20,6 @@ function joinClasses(join){
         event.npc.say("talk to me again! Character not initialized");
     }else{
       joinClasses();
+      event.npc.say("You're all set!");
     }
 }
