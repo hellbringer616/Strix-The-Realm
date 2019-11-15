@@ -12,8 +12,8 @@ function clicked(event){
   //**//
 
   //***// load config from initialize tempdata
-  var model = event.block.tempdata.put("model");
-  var texture = event.block.tempdata.put("texture");
+  var model = event.block.tempdata.get("model");
+  var texture = event.block.tempdata.get("texture");
   var durability = event.block.tempdata.get("durability");
   var loot = event.block.tempdata.get("loot");
   //***//
