@@ -101,3 +101,6 @@ function timer(event){
      event.block.tempdata.put("durability",durability);
      event.block.timers.stop(1);
 }
+function harvested(event){
+  event.setCanceled(true);
+}
