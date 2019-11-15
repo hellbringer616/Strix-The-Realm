@@ -20,6 +20,6 @@ function joinClasses(join){
         event.API.executeCommand(event.player.world, "nadmin invoke "+playerName+" char switch "+playerName+"");
     }else{
       joinClasses();
-      event.player.message("&aYou're all set!");
+      event.player.message("&aCharacter setup correctly!");
     }
 }
