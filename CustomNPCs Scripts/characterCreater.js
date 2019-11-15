@@ -1,4 +1,5 @@
-function interact(event){
+//this is a player script and will not function if run anywhere other than the player
+function init(event){
   var RpgPlugin = Java.type("cz.neumimto.rpg.sponge.NtRpgPlugin");
   var uid = event.player.getUUID(); //Get Player UUID string
   var JavaUUID = Java.type('java.util.UUID'); //Magic?
@@ -9,17 +10,16 @@ function joinClasses(join){
   var classesArray =["Alethi","Armorer","Combat","Metallurgy","Thieving","Weaponsmith"]
     for(var i = 0; i < classesArray.length; i++){
         if(character.getClasses().get(classesArray[i]) == null){
-        event.npc.executeCommand("nadmin invoke "+playerName+" char choose class "+classesArray[i]+"");
+        event.API.executeCommand(event.player.world, "nadmin invoke "+playerName+" char choose class "+classesArray[i]+"");
       }
     }
   }
 
     if(character.getName() != playerName){
-        event.npc.executeCommand("nadmin invoke "+playerName+" char create "+playerName+"");
-        event.npc.executeCommand("nadmin invoke "+playerName+" char switch "+playerName+"");
-        event.npc.say("talk to me again! Character not initialized");
+        event.API.executeCommand(event.player.world, "nadmin invoke "+playerName+" char create "+playerName+"");
+        event.API.executeCommand(event.player.world, "nadmin invoke "+playerName+" char switch "+playerName+"");
     }else{
       joinClasses();
-      event.npc.say("You're all set!");
+      event.player.message("&aYou're all set!");
     }
 }
