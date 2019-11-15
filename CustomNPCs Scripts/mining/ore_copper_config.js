@@ -5,6 +5,7 @@ function init(event){
     var loot = "retrieve 2 1 "; //Must be a string: Use Itemizer function (retrieve for single item, fetch for item pool) itemID from Itemizer, and quantity **MUST HAVE A LEADING SPACE**
     var requiredLevel = 0; //Must be an integer
     var xP = 7.5 //must be an integer
+    var time = 1200 //must be an integer; time in ticks (20 ticks per second) for block respawn variable
         event.block.setModel(model); //sets the model of the block
         event.block.model.setItemDamage(texture); //sets the texture of the block
         event.block.tempdata.put("model",model);
@@ -13,4 +14,5 @@ function init(event){
         event.block.tempdata.put("loot",loot);
         event.block.tempdata.put("requiredLevel",requiredLevel);
         event.block.tempdata.put("xP",xP);
+        event.block.tempdata.put("time",time);
 }

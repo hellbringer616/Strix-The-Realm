@@ -17,6 +17,7 @@ function clicked(event){
   var texture = event.block.tempdata.get("texture");
   var durability = event.block.tempdata.get("durability");
   var loot = event.block.tempdata.get("loot");
+  var time =event.block.tempdata.get("time");
   //***//
 
   var heldItem = event.player.mainhandItem.displayName; //return the display name of a held item
@@ -35,7 +36,7 @@ function clicked(event){
     if(event.block.timers.has(1)){
       event.block.timers.stop(1);
     }
-    event.block.timers.start(1, 2400, false); //sets a timer that executes a function after 2 minutes
+    event.block.timers.start(1, time, false); //sets a timer that executes a function after 1 minute
   }
   ///***///
 
@@ -101,6 +102,7 @@ function timer(event){
      event.block.tempdata.put("durability",durability);
      event.block.timers.stop(1);
 }
-function harvested(event){
-  event.setCanceled(true);
-}
+//breaks the script
+//function harvested(event){
+  //event.setCanceled(true);
+//}
