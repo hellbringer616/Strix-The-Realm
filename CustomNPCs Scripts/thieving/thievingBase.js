@@ -20,9 +20,12 @@ function interact(event) {
         var rng = Math.random(); //generates a random number between 0 and 1
         var roll = ((5/833)*((classLevel/requiredLevel)+(classLevel-requiredLevel)))+(17/49)+rng
         if(roll >= 1){
-          var loot = event.npc.tempdata.get("loot");
-          event.npc.executeCommand(loot + playerName); //retrieve itemizer item of quantity and give to player
+          var econLoot = event.npc.tempdata.get("econLoot") //gets econLoot from event.npc.tempdata.put()
+          event.npc.executeCommand("adminpay " + playerName = " " econLoot);
+          //var loot = event.npc.tempdata.get("loot");
+          //event.npc.executeCommand(loot + playerName); //retrieve itemizer item of quantity and give to player
           event.npc.executeCommand("nadmin exp add " + playerName + " " + xP + " " + className + " " + className); //gives the player theiving XP
+          event.player.message("&eYou have stolen " + "&c" + econLoot + "&ecoins.");
         }else{
           var caughtResponse = event.npc.tempdata.get("caughtResponse") //gets caughtResponse from event.npc.tempdata.put()
           event.npc.say(caughtResponse);
@@ -30,10 +33,10 @@ function interact(event) {
           event.player.addPotionEffect(2, 3, 6, true); //adds slowness of 3 seconds of level 6 (immobile) to player
         }
       }else{
-        event.npc.say("Hello Adventurer");
+        event.player.message("&eYou are stunned.");
       }
     }else{
-      event.player.message(" &eYou must be at least level " + "&4" + requiredLevel + " &eto steal");
+      event.player.message("&eYou must be at least level " + "&4" + requiredLevel + " &eto steal");
     }
   }
 }
