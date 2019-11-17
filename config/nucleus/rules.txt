@@ -1,2 +1,3 @@
+&lRun the &3/char create %Chracter_Name% &l&fto get make your character!
 use P to open the Character Menu
 [NumPad]+ to open the ModTools Menu
