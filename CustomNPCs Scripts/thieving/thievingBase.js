@@ -13,7 +13,7 @@ function interact(event) {
     var requiredLevel = event.npc.tempdata.get("requiredLevel") //level required to steal from event.npc.tempdata.put()
     var classLevel = classData.getLevel(); //returns Class Level from Class Data
     var playerName = event.player.getName(); //gets the interacting players name
-    if(classLevel >= requiredLevel){
+    if(classLevel >= requiredLevel && sneak == true){
       if(sneak && event.player.getPotionEffect(2) != 6){ //checks if the player is sneaking and if the player is not inflected with slowness strength 6 and is atleast the required level to steal from the NPC
         var xP = event.npc.tempdata.get("xP") //XP per successful steal from event.npc.tempdata.put()
         var rng = Math.random(); //generates a random number between 0 and 1
