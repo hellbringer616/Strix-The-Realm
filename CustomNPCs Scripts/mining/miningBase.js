@@ -30,6 +30,7 @@ function clicked(event){
   ///*** function that runs once a block is "mined"
   function isMined(mined){
     event.block.executeCommand(loot + playerName); //retrieve itemizer item of quantity and give to player
+    event.player.playSound("minecraft:block.anvil.use",1 ,1);
     event.block.executeCommand("nadmin exp add " + playerName + " " + xP + " " + " metallurgy metallurgy") //execute command to add experience to a class
     event.block.setModel("minecraft:stone"); //set block model to regular stone. NOTE: Does not work with Optifine.
     //checks to see if there is a timer of 1 and stops it if there is one.
@@ -54,6 +55,7 @@ function clicked(event){
             var damage = 1+(classLevel/10)*1;
             var durability = durability - damage;
             event.block.tempdata.put("durability",durability);
+            event.player.playSound("minecraft:block.anvil.land",1 ,1);
             if(durability < 1){
               isMined();
             }
