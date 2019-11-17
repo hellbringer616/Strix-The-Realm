@@ -25,7 +25,7 @@ function interact(event) {
           //var loot = event.npc.tempdata.get("loot");
           //event.npc.executeCommand(loot + playerName); //retrieve itemizer item of quantity and give to player
           event.npc.executeCommand("nadmin exp add " + playerName + " " + xP + " " + className + " " + className); //gives the player theiving XP
-          event.player.message("&eYou have stolen " + "&c" + econLoot + "&ecoins.");
+          event.player.message("&eYou have stolen " + "&c" + econLoot + " &ecoins.");
         }else{
           var caughtResponse = event.npc.tempdata.get("caughtResponse") //gets caughtResponse from event.npc.tempdata.put()
           event.npc.say(caughtResponse);
