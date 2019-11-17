@@ -3,6 +3,7 @@ var RpgPlugin = Java.type("cz.neumimto.rpg.sponge.NtRpgPlugin");
 //On interact with NPC
 function interact(event) {
   var sneak = event.player.isSneaking(); //is the player sneaking
+  var isStunned = event.player.getPotionEffect(2) != 6 //creates status "stunned" by inflecting player with slowness strength 6
   var className = "Thieving" //must be a string
   var uid = event.player.getUUID(); //Get Player UUID string
   var JavaUUID = Java.type('java.util.UUID'); //Magic?
@@ -13,8 +14,8 @@ function interact(event) {
     var requiredLevel = event.npc.tempdata.get("requiredLevel") //level required to steal from event.npc.tempdata.put()
     var classLevel = classData.getLevel(); //returns Class Level from Class Data
     var playerName = event.player.getName(); //gets the interacting players name
-    if(classLevel >= requiredLevel && sneak == true){
-      if(sneak && event.player.getPotionEffect(2) != 6){ //checks if the player is sneaking and if the player is not inflected with slowness strength 6 and is atleast the required level to steal from the NPC
+    if(sneak && classLevel >= requiredLevel){
+      if(isStunned){ //checks if the player is sneaking and if the player is stunned and is atleast the required level to steal from the NPC
         var xP = event.npc.tempdata.get("xP") //XP per successful steal from event.npc.tempdata.put()
         var rng = Math.random(); //generates a random number between 0 and 1
         var roll = ((5/833)*((classLevel/requiredLevel)+(classLevel-requiredLevel)))+(17/49)+rng
@@ -23,8 +24,8 @@ function interact(event) {
           event.npc.executeCommand(loot + playerName); //retrieve itemizer item of quantity and give to player
           event.npc.executeCommand("nadmin exp add " + playerName + " " + xP + " " + className + " " + className); //gives the player theiving XP
         }else{
-          var response = event.npc.tempdata.get("response") //gets response from event.npc.tempdata.put()
-          event.npc.say(response);
+          var caughtResponse = event.npc.tempdata.get("caughtResponse") //gets caughtResponse from event.npc.tempdata.put()
+          event.npc.say(caughtResponse);
           event.player.damage(2);
           event.player.addPotionEffect(2, 3, 6, true); //adds slowness of 3 seconds of level 6 (immobile) to player
         }
