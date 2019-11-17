@@ -9,6 +9,6 @@ function init(event){
     event.npc.tempdata.put("requiredLevel",requiredLevel);
     event.npc.tempdata.put("xP",xP);
     event.npc.tempdata.put("caughtResponse",caughtResponse);
-    event.npc.tempdata.put("econLoot","econLoot")
+    event.npc.tempdata.put("econLoot", econLoot)
     //event.npc.tempdata.put("loot",loot);
 }
