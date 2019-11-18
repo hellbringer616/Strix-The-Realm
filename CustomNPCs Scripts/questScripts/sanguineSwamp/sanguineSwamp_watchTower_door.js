@@ -24,21 +24,25 @@ function interact(event){
           event.setCanceled(true); //cancels the event.
           event.player.message("&eThe door is locked.")
     }
-    if(event.player.hasActiveQuest("<NeedsQuestID>") && sneak){
+  //**//if the player is sneaking and has either the active quest or has completed the quest
+    if(sneak && event.player.hasActiveQuest("<NeedsQuestID>") || event.player.hasFinishedQuest("<NeedsQuestID>")){
       var className = "Thieving" //must be a string
       var uid = event.player.getUUID(); //Get Player UUID string
       var JavaUUID = Java.type('java.util.UUID'); //Magic?
       var character = RpgPlugin.GlobalScope.characterService.getCharacter(JavaUUID.fromString(uid)) //load NT-RPG Character service and get UUID than convert to Java UUID
       var classData = character.getClasses().get(className) //gets class data from character
       var requiredLevel = 4
-      if(sneak && classLevel >= requiredLevel && event.player.hasActiveQuest("<NeedsQuestID>") || event.player.hasFinishedQuest("<NeedsQuestID>")){
+      //if the class level is greater than the requiredLevel open the door
+      if(classLevel >= requiredLevel){
 
       }
     }else{
           event.setCanceled(true); //cancels the event.
           event.player.message("&eyou failed to pick the lock.")
     }
+  //**//
 }
+
 //run a timer
 function timer(event){
   //checks if the door/block is open
