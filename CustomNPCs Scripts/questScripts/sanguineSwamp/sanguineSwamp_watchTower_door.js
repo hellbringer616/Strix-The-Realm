@@ -30,6 +30,13 @@ function interact(event){
       var JavaUUID = Java.type('java.util.UUID'); //Magic?
       var character = RpgPlugin.GlobalScope.characterService.getCharacter(JavaUUID.fromString(uid)) //load NT-RPG Character service and get UUID than convert to Java UUID
       var classData = character.getClasses().get(className) //gets class data from character
+      var requiredLevel = 4
+      if(sneak && classLevel >= requiredLevel && event.player.hasActiveQuest("<NeedsQuestID>") || event.player.hasFinishedQuest("<NeedsQuestID>")){
+
+      }
+    }else{
+          event.setCanceled(true); //cancels the event.
+          event.player.message("&eyou failed to pick the lock.")
     }
 }
 //run a timer
