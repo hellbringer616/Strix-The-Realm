@@ -1,5 +1,5 @@
-//loads NTRPG Plugin
-var RpgPlugin = Java.type("cz.neumimto.rpg.sponge.NtRpgPlugin");
+var RpgPlugin = Java.type("cz.neumimto.rpg.sponge.NtRpgPlugin"); //loads NTRPG Plugin
+var JavaUUID = Java.type('java.util.UUID'); //Magic?
 //On interact with NPC
 
 //on interaction with the door/block
@@ -26,12 +26,11 @@ function interact(event){
     }
   //**//if the player is sneaking and has either the active quest or has completed the quest
     if(sneak && event.player.hasActiveQuest("<NeedsQuestID>") || event.player.hasFinishedQuest("<NeedsQuestID>")){
-      var className = "Thieving" //must be a string
       var uid = event.player.getUUID(); //Get Player UUID string
-      var JavaUUID = Java.type('java.util.UUID'); //Magic?
       var character = RpgPlugin.GlobalScope.characterService.getCharacter(JavaUUID.fromString(uid)) //load NT-RPG Character service and get UUID than convert to Java UUID
-      var classData = character.getClasses().get(className) //gets class data from character
+      var classData = character.getClasses().get("Thieving") //gets Thieving class data from character
       var requiredLevel = 4
+      
       //if the class level is greater than the requiredLevel open the door
       if(classLevel >= requiredLevel){
         event.player.message("&eyou successfully picked the lock.")
