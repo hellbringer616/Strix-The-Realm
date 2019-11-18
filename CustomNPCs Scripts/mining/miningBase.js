@@ -64,6 +64,7 @@ function clicked(event){
             var damage = 1+(classLevel/10)*1.1;
             var durability = durability - damage;
             event.block.tempdata.put("durability",durability);
+            event.player.playSound("minecraft:block.anvil.land",1 ,1);
             if(durability < 1){
               isMined();
             }
@@ -72,6 +73,7 @@ function clicked(event){
             var damage = 1+(classLevel/10)*1.15;
             var durability = durability - damage;
             event.block.tempdata.put("durability",durability);
+            event.player.playSound("minecraft:block.anvil.land",1 ,1);
             if(durability < 1){
               isMined();
             }
@@ -80,6 +82,7 @@ function clicked(event){
             var damage = 1+(classLevel/10)*1.2;
             var durability = durability - damage;
             event.block.tempdata.put("durability",durability);
+            event.player.playSound("minecraft:block.anvil.land",1 ,1);
             if(durability < 1){
               isMined();
             }
