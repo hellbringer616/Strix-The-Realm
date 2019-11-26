@@ -1,0 +1,7 @@
+# Book data for Sanguine
+book {
+    bookName=Thieves Cant
+    bookPages=[
+        "§l      The Thieves Cant\n\nI can start this quest by speaking to §cRich Folville §rin the §cNiffelheim Dungeons."
+    ]
+}
