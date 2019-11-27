@@ -1,3 +1,7 @@
+function init(event){
+    event.block.setBlockModel("minecraft:spruce_door");
+}
+
 var RpgPlugin = Java.type("cz.neumimto.rpg.sponge.NtRpgPlugin"); //loads NTRPG Plugin
 var JavaUUID = Java.type('java.util.UUID'); //Magic?
 //On interact with NPC
