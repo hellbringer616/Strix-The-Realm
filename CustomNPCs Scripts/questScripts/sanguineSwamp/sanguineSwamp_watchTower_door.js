@@ -38,11 +38,11 @@ function interact(event){
 
       //if the class level is greater than the requiredLevel open the door
       if(classLevel >= requiredLevel){
-        event.player.message("&eyou successfully picked the lock.");
+        event.player.message("&eyou successfully picked the lock!");
         event.block.timers.start(1, 40, false); //sets a timer with id 1 to trigger after 40 ticks (2 seconds)
       }else{
           event.setCanceled(true); //cancels the event.
-          event.player.message("&eYou do not have the skill to open this.");
+          event.player.message("&cYou do not have the skill to open this.");
     }
   //**//
   }
