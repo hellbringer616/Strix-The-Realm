@@ -18,37 +18,38 @@ function interact(event){
 
 
   //If the player has read dialog with the ID 1 allow the player to open the door.
-    if(event.player.hasActiveQuest("<NeedsQuestID>") && hasKey == 1 && !sneak){
+    if(event.player.hasFinishedQuest("17") && hasKey == 1 && !sneak){
          event.block.timers.start(1, 40, false); //sets a timer with id 1 to trigger after 40 ticks (2 seconds)
     }else{
           event.setCanceled(true); //cancels the event.
           event.player.message("&eThe door is locked.")
     }
   //**//if the player is sneaking and has either the active quest or has completed the quest
-    if(sneak && event.player.hasActiveQuest("<NeedsQuestID>") || event.player.hasFinishedQuest("<NeedsQuestID>")){
+    if(sneak && event.player.hasActiveQuest(15) || sneak && event.player.hasFinishedQuest(15)){
       var uid = event.player.getUUID(); //Get Player UUID string
-      var character = RpgPlugin.GlobalScope.characterService.getCharacter(JavaUUID.fromString(uid)) //load NT-RPG Character service and get UUID than convert to Java UUID
-      var classData = character.getClasses().get("Thieving") //gets Thieving class data from character
-      var requiredLevel = 4
-      
+      var character = RpgPlugin.GlobalScope.characterService.getCharacter(JavaUUID.fromString(uid)); //load NT-RPG Character service and get UUID than convert to Java UUID
+      var classData = character.getClasses().get("Thieving"); //gets Thieving class data from character
+      var classLevel = classData.getLevel(); //returns Class Level from Class Data
+      var requiredLevel = 4;
+
       //if the class level is greater than the requiredLevel open the door
       if(classLevel >= requiredLevel){
-        event.player.message("&eyou successfully picked the lock.")
+        event.player.message("&eyou successfully picked the lock.");
         event.block.timers.start(1, 40, false); //sets a timer with id 1 to trigger after 40 ticks (2 seconds)
-      }
-    }else{
+      }else{
           event.setCanceled(true); //cancels the event.
-          event.player.message("&eyou failed to pick the lock.")
+          event.player.message("&eYou do not have the skill to open this.");
     }
   //**//
+  }
 }
 
 //run a timer
 function timer(event){
   //checks if the door/block is open
-    if(event.block.getOpen() == true) {
+    if(event.block.getOpen() == true); {
       //if open close the door/block and stop the timer
-        event.block.setOpen(false)
+        event.block.setOpen(false);
         event.block.timers.stop(1);
         }
         //stop the timer
