@@ -3,12 +3,15 @@ var itemService = Java.type("com.onaple.itemizer.utils.ItemService");
 
 function interact(event) {
 
-  if(event.player.hasActiveQuest(17) && itemService.hasItem("22",1)){
-    event.player.showDialog(49,"Josiah Cadwell")
+  if(event.player.hasActiveQuest(17) && itemService.hasItem(player,"22",1)){
+    event.player.showDialog(49,"Josiah Cadwell") //opens a dialog window for the player
     //code to remove Iron Ingot goes here.
-    //code to add Watch Tower Key goes here.
-    //code to complete quest goes here? finishQuest then removeQuest
+    var playerName = event.player.getName() //gets players name
+    event.npc.executeCommand("retreive 9501 "+ playerName + "") //gives an itemizer item
+    event.player.removeQuest(17); //removes a quest from the player
+    event.player.finishQuest(17); //completes a quest
+    event.player.startQuest(18); //starts a quest
   }else{
-    event.player.showDialog(48,"Josiah Cadwell")
+    event.player.showDialog(48,"Josiah Cadwell") //opens a dialog window for the player
   }
 }
