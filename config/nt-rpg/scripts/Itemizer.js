@@ -2,29 +2,32 @@ var Sponge = Java.type("org.spongepowered.api.Sponge");
 var ItemType = Java.type("org.spongepowered.api.item.ItemType");
 var ItemTypes = Java.type("org.spongepowered.api.item.ItemTypes");
 var ItemStack = Java.type("org.spongepowered.api.item.inventory.ItemStack");
-var ItemizerItemService = Java.type("com.onaple.itemizer.utils.ItemService");
+//var ItemizerItemService = Sponge.getServiceManager().provideUnchecked(Java.type("com.onaple.itemizer.service.IItemService").class);
+var ItemizerItemService = Java.type("com.onaple.itemizer.Itemizer").getItemService();
 var QueryOperationTypes = Java.type("org.spongepowered.api.item.inventory.query.QueryOperationTypes");
 
 var Itemizer = {
-
+    
     /**
         Gets itemizer ItemStack by id
         @param id: Itemizer id of item
         @return Sponge ItemStack or empty
     */
     retrieve: function(id) {
-        return ItemizerItemService.retrieve(id, 1);
+        var optional = ItemizerItemService.retrieve(id);
+        return optional.orElse(ItemStack.empty()); 
     },
-
+    
     /**
         Gets itemizer ItemStack from pool by pool id
         @param id: Itemizer pool id
         @return Sponge ItemStack from pool or empty
     */
     fetch: function(poolId) {
-        return ItemizerItemService.fetch(id);
+        var optional = ItemizerItemService.fetch(id);
+        return optional.orElse(ItemStack.empty()); 
     },
-
+    
     /**
         Checks for itemizer items inside player inventory
         @param player: Sponge player
@@ -35,7 +38,7 @@ var Itemizer = {
     hasItemizerItem: function(player, itemId, quantity) {
         return this.hasItem(player, this.retrieve(itemId), quantity);
     },
-
+    
     /**
         Adds itemizer item to inventory (doesn't check for inventory contents, will act strange if inventory is full)
         @param player: Sponge player
@@ -45,7 +48,7 @@ var Itemizer = {
     addItemizerItem: function(player, itemId, quantity) {
         this.addItem(player, this.retrieve(itemId), quantity);
     },
-
+    
     /**
         Removes itemizer item from inventory (doesn't check for inventory contents, will act strange if inventory doesn't contain quantity of items)
         @param player: Sponge player
@@ -53,9 +56,9 @@ var Itemizer = {
         @param quantity: quantity of items to remove
     */
     removeItemizerItem: function(player, itemId, quantity) {
-        this.removeItem(player, this.retrieve(itemId), quantity);
+        this.removeItem(player, this.retrieve(itemId), quantity);  
     },
-
+    
     /**
         Tries to craft item
         @param player: Sponge player
@@ -70,6 +73,16 @@ var Itemizer = {
     */
     craft: function(player, required, result) {
         var canCraft = true;
+        var resultStack;
+        if (typeof result[0] == "string") {
+            resultStack = ItemStack.of(result[0]);
+        } else {
+            resultStack = this.retrieve(result[0]);
+        } 
+            
+        if (!player.getInventory().canFit(resultStack)) {
+            player.sendMessage(Texts.of("Not enough inventory space!"));
+        }
         for (var i = 0; i < required.length; i++) {
             var p = required[i];
             if (!canCraft) return false;
@@ -80,7 +93,8 @@ var Itemizer = {
                 canCraft = this.hasItemizerItem(player, p[0], p[1]);
             }
         }
-        if (canCraft) {
+        if (!canCraft) player.sendMessage(Texts.of("Not enough resources!"));
+        else {
             for (var i = 0; i < required.length; i++) {
                 var p = required[i];
                 var itemStack;
@@ -98,7 +112,7 @@ var Itemizer = {
         }
         return true;
     },
-
+    
     // Use this to check for sponge ItemStack
     // You can use default minecraft items (mods included) by using String id instead of ItemStack ("minecraft:stone" for example).
     hasItem: function(player, itemStack, quantity) {
@@ -110,7 +124,7 @@ var Itemizer = {
         check.setQuantity(quantity);
         return player.getInventory().contains(check);
     },
-
+    
     // Use this to add sponge ItemStack to inventory
     // You can use default minecraft items (mods included) by using String id instead of ItemStack ("minecraft:stone" for example).
     addItem: function(player, itemStack, quantity) {
@@ -122,7 +136,7 @@ var Itemizer = {
         stack.setQuantity(quantity);
         player.getInventory().offer(stack);
     },
-
+    
     // Use this to remove sponge ItemStack from inventory
     // You can use default minecraft items (mods included) by using String id instead of ItemStack ("minecraft:stone" for example).
     removeItem: function(player, itemStack, quantity) {
@@ -135,3 +149,5 @@ var Itemizer = {
         player.getInventory().query(QueryOperationTypes.ITEM_STACK_IGNORE_QUANTITY.of(stack)).poll(quantity);
     }
 }
+
+Bindings.getScriptEngine().put("Itemizer", Itemizer);
