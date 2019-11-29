@@ -10,11 +10,11 @@ function interact(event) {
   var character = RpgPlugin.GlobalScope.characterService.getCharacter(JavaUUID.fromString(uid)) //load NT-RPG Character service and get UUID than convert to Java UUID
   var classData = character.getClasses().get(className) //gets class data from character
 
-  if (classData !== null) { //checks if classData returns null
+  if (classData !== null && sneak) { //checks if classData returns null
     var requiredLevel = event.npc.tempdata.get("requiredLevel") //level required to steal from event.npc.tempdata.put()
     var classLevel = classData.getLevel(); //returns Class Level from Class Data
     var playerName = event.player.getName(); //gets the interacting players name
-    if(sneak && classLevel >= requiredLevel){
+    if(classLevel >= requiredLevel){
       if(isStunned){ //checks if the player is sneaking and if the player is stunned and is atleast the required level to steal from the NPC
         var xP = event.npc.tempdata.get("xP") //XP per successful steal from event.npc.tempdata.put()
         var rng = Math.random(); //generates a random number between 0 and 1
@@ -36,7 +36,6 @@ function interact(event) {
         event.player.message("&eYou are stunned.");
       }
     }else{
-      if(sneak && classLevel < requiredLevel)
       event.player.message("&eYou must be at least level " + "&4" + requiredLevel + " &eto steal");
     }
   }
