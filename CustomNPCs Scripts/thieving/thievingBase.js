@@ -36,6 +36,7 @@ function interact(event) {
         event.player.message("&eYou are stunned.");
       }
     }else{
+      if(sneak && classLevel < requiredLevel)
       event.player.message("&eYou must be at least level " + "&4" + requiredLevel + " &eto steal");
     }
   }
