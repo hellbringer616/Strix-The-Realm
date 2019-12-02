@@ -8,16 +8,16 @@ function clicked(event){
   var character = RpgPlugin.GlobalScope.characterService.getCharacter(JavaUUID.fromString(uid)); //load NT-RPG Character service and get UUID than convert to Java UUID
   var className = "Metallurgy"; //must be a string
   var classData = character.getClasses().get(className) //gets class data from character
-  var requiredLevel = event.block.tempdata.get("requiredLevel");
-  var xP = event.block.tempdata.get("xP");
   //**//
 
-  //*** load config from initialize tempdata
+  //*** load config from initialized tempdata
   var model = event.block.tempdata.get("model");
   var texture = event.block.tempdata.get("texture");
   var durability = event.block.tempdata.get("durability");
   var loot = event.block.tempdata.get("loot");
   var time =event.block.tempdata.get("time");
+  var requiredLevel = event.block.tempdata.get("requiredLevel");
+  var xP = event.block.tempdata.get("xP");
   //***//
 
   var heldItem = event.player.mainhandItem.displayName; //return the display name of a held item
@@ -54,39 +54,39 @@ function clicked(event){
           if (isBronzePick){
             var damage = 1+(classLevel/10)*1;
             var durability = durability - damage;
-            event.block.tempdata.put("durability",durability);
-            event.player.playSound("minecraft:block.anvil.land",1 ,1);
-            if(durability < 1){
-              isMined();
+              event.block.tempdata.put("durability",durability);
+              event.player.playSound("minecraft:block.anvil.land",1 ,1);
+              if(durability < 1){
+                isMined();
+              }
             }
-        }
-          if (isIronPick){
-            var damage = 1+(classLevel/10)*1.1;
-            var durability = durability - damage;
-            event.block.tempdata.put("durability",durability);
-            event.player.playSound("minecraft:block.anvil.land",1 ,1);
-            if(durability < 1){
-              isMined();
+            if (isIronPick){
+              var damage = 1+(classLevel/10)*1.1;
+              var durability = durability - damage;
+                event.block.tempdata.put("durability",durability);
+                event.player.playSound("minecraft:block.anvil.land",1 ,1);
+                if(durability < 1){
+                  isMined();
+                }
             }
-        }
-          if (isSteelPick){
-            var damage = 1+(classLevel/10)*1.15;
-            var durability = durability - damage;
-            event.block.tempdata.put("durability",durability);
-            event.player.playSound("minecraft:block.anvil.land",1 ,1);
-            if(durability < 1){
-              isMined();
+            if (isSteelPick){
+              var damage = 1+(classLevel/10)*1.15;
+              var durability = durability - damage;
+                event.block.tempdata.put("durability",durability);
+                event.player.playSound("minecraft:block.anvil.land",1 ,1);
+                if(durability < 1){
+                  isMined();
+                }
             }
-        }
-          if (isMithrilPick){
-            var damage = 1+(classLevel/10)*1.2;
-            var durability = durability - damage;
-            event.block.tempdata.put("durability",durability);
-            event.player.playSound("minecraft:block.anvil.land",1 ,1);
-            if(durability < 1){
-              isMined();
+            if (isMithrilPick){
+              var damage = 1+(classLevel/10)*1.2;
+              var durability = durability - damage;
+                event.block.tempdata.put("durability",durability);
+                event.player.playSound("minecraft:block.anvil.land",1 ,1);
+                if(durability < 1){
+                  isMined();
+                }
             }
-        }
             //**//
         }else{
         event.player.message("&eYou must be at least level &c"+requiredLevel+" &eto mine.");
@@ -101,9 +101,9 @@ function clicked(event){
 function timer(event){
   var model = event.block.tempdata.get("model");
   var texture = event.block.tempdata.get("texture");
+  var durability = 20;
      event.block.setModel(model);
      event.block.model.setItemDamage(texture);
-     var durability = 20;
      event.block.tempdata.put("durability",durability);
      event.block.timers.stop(1);
 }
