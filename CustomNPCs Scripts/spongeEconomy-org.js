@@ -2,10 +2,12 @@
 var EconomyService = Sponge.getServiceManager().provideUnchecked(Java.type("org.spongepowered.api.service.economy.EconomyService").class)
 var currency = EconomyService.getDefaultCurrency() //gets DefaultCurrency of the Economy Plugin
 var cause = Sponge.getCauseStackManager().getCurrentCause() //gets the Cause Manager from Sponge
+var BigDecimal = Java.type("java.math.BigDecimal") //Imports Java function BigDecimal
 
 function interact(event){
       var uid = event.player.getUUID(); //Get Player UUID string
-      var account = EconomyService.getOrCreateAccount(UUID.fromString(uid)) //gets Economy Account for the Player.
+      var JavaUUID = Java.type('java.util.UUID'); //Magic?
+      var account = EconomyService.getOrCreateAccount(JavaUUID.fromString(uid)) //gets Economy Account for the Player.
       var value = new BigDecimal(2) //value in () is value to be deposited.
       var balance = account.get().getBalance(currency) //gets the balance of DefaultCurrency
 

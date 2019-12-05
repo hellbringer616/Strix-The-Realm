@@ -23,4 +23,32 @@ function getRandomInt(min,max){
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min
 }
-Bindings.getScriptEngine().put("getRandomInt",getRandomInt)
+Bindings.getScriptEngine().put("getRandomInt",getRandomInt);
+
+//Sponge Economy Depoist: uuid is event.player.getUUID(), value is any integer
+function spongeEconomyDeposit(uuid,value){
+    var account = EconomyService.getOrCreateAccount(UUID.fromString(uuid)) //gets Economy Account for the Player.
+    var value = new BigDecimal(value) //value in () is value to be deposited.
+    var currency = EconomyService.getDefaultCurrency() //gets DefaultCurrency of the Economy Plugin
+    var cause = Sponge.getCauseStackManager().getCurrentCause() //gets the Cause Manager from Sponge
+
+        account.get().deposit(currency,value,cause) //deposit amount of value into players account.
+        event.player.message("You found "+value+" Coins") //message player the amount of coins found.
+}
+
+//Sponge Economy Withdraw: uuid is event.player.getUUID(), value is any integer
+function spongeEconomyWithdraw(uuid,value){
+    var account = EconomyService.getOrCreateAccount(UUID.fromString(uuid)) //gets Economy Account for the Player.
+    var value = new BigDecimal(value) //value in () is value to be deposited.
+    var currency = EconomyService.getDefaultCurrency() //gets DefaultCurrency of the Economy Plugin
+    var cause = Sponge.getCauseStackManager().getCurrentCause() //gets the Cause Manager from Sponge
+
+        account.get().withdraw(currency,value,cause) //withdraw amount of value from players account.
+}
+
+//Sponge Economy Balance: uuid is event.player.getUUID()
+function spongeEconomyWithdraw(uuid){
+    var account = EconomyService.getOrCreateAccount(UUID.fromString(uuid)) //gets Economy Account for the Player.
+
+        account.get().getBalance(currency) //check the amount of a players account.
+}
