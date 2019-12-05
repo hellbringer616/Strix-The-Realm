@@ -8,6 +8,7 @@ Bindings.getScriptEngine().put("YourThing", yourThing);
 
 // java things
 Bindings.getScriptEngine().put("UUID", Java.type("java.util.UUID"));
+Bindings.getScriptEngine().put("BigDecimal", Java.type("java.math.BigDecimal"));
 
 // sponge things
 Bindings.getScriptEngine().put("Sponge", Java.type("org.spongepowered.api.Sponge"));
