@@ -9,4 +9,5 @@ var econLoot = 3 //must be an integer.
 
   itemService.instanciate(item,event.npc.getWorld().getName(),event.npc.getBlockX(),event.npc.getBlockY(),event.npc.getBlockZ()); // Instanciate the item at the location where the NPC dies
   spongeEconomyDeposit(uid,econLoot) //Depoist a value into the players account through Sponge Economy Service; see bindings.js for details
+  event.source.message("You've received " + econLoot + " coins")
 }
