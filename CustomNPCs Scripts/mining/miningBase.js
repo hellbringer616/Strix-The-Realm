@@ -34,58 +34,43 @@ function clicked(event){
     event.block.executeCommand("nadmin exp add " + playerName + " " + xP + " " + " metallurgy metallurgy") //execute command to add experience to a class
     event.block.setModel("minecraft:stone"); //set block model to regular stone. NOTE: Does not work with Optifine.
     //checks to see if there is a timer of 1 and stops it if there is one.
-    if(event.block.timers.has(1)){
-      event.block.timers.stop(1);
-    }
+      if(event.block.timers.has(1)){
+        event.block.timers.stop(1);
+      }
     event.block.timers.start(1, time, false); //sets a timer that executes a function after 1 minute
   }
   ///***///
-
+function mining(multi){
+  var damage = 1+(classLevel/10)*multi;
+  var durability = event.block.tempdata.get("durability");
+  var durability = durability - damage;
+    event.block.tempdata.put("durability",durability);
+    event.player.playSound("minecraft:block.anvil.land",1 ,1);
+      if(durability <= 0){
+        isMined();
+      }
+}
   if(classData !== null) { //checks if classData returns null
     var classLevel = classData.getLevel(); //gets level from defined Character Class
 
       //if durability is less than 1 change model to stone and starts a timer
-      if(durability < 1){
+      if(durability <= 0){
           event.player.message("&eYou cannot mine this right now."); //does not work
         }else{
           //* checks to see if the item is a pickaxe; otherwise tells the player they cannot mine
         if (classLevel >= requiredLevel){
             //** Checks which pickaxe the player is holding and adjusts damage accordingly based on class level and pickaxe type.
           if (isBronzePick){
-            var damage = 1+(classLevel/10)*1;
-            var durability = durability - damage;
-              event.block.tempdata.put("durability",durability);
-              event.player.playSound("minecraft:block.anvil.land",1 ,1);
-              if(durability < 1){
-                isMined();
-              }
+              mining(1)
             }
             if (isIronPick){
-              var damage = 1+(classLevel/10)*1.1;
-              var durability = durability - damage;
-                event.block.tempdata.put("durability",durability);
-                event.player.playSound("minecraft:block.anvil.land",1 ,1);
-                if(durability < 1){
-                  isMined();
-                }
+              mining(1.1)
             }
             if (isSteelPick){
-              var damage = 1+(classLevel/10)*1.15;
-              var durability = durability - damage;
-                event.block.tempdata.put("durability",durability);
-                event.player.playSound("minecraft:block.anvil.land",1 ,1);
-                if(durability < 1){
-                  isMined();
-                }
+              mining(1.15)
             }
             if (isMithrilPick){
-              var damage = 1+(classLevel/10)*1.2;
-              var durability = durability - damage;
-                event.block.tempdata.put("durability",durability);
-                event.player.playSound("minecraft:block.anvil.land",1 ,1);
-                if(durability < 1){
-                  isMined();
-                }
+              mining(1.2)
             }
             //**//
         }else{
