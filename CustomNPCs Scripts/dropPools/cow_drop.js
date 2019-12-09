@@ -2,7 +2,6 @@
 var itemService = Java.type("com.onaple.itemizer.utils.ItemService");
 //Anything within the brackets runs on the death of an NPC
 function died(event) {
-    var playerName = event.source.getName(); //gets the interacting players name
     var bones = itemService.retrieve("800",1);//fetches an item from the itemizer item pool string of pool ID
     var item1 = itemService.retrieve("41",1);//fetches an item from the itemizer item pool string of pool ID
     var item2 = itemService.retrieve("500",1);//fetches an item from the itemizer item pool string of pool ID
