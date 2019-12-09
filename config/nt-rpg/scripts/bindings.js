@@ -35,6 +35,7 @@ function spongeEconomyDeposit(uuid,value){
         account.get().deposit(currency,value,cause) //deposit amount of value into players account.
         event.player.message("You found "+value+" Coins") //message player the amount of coins found.
 }
+Bindings.getScriptEngine().put("spongeEconomyDeposit",spongeEconomyDeposit);
 
 //Sponge Economy Withdraw: uuid is event.player.getUUID(), value is any integer
 function spongeEconomyWithdraw(uuid,value){
@@ -45,10 +46,12 @@ function spongeEconomyWithdraw(uuid,value){
 
         account.get().withdraw(currency,value,cause) //withdraw amount of value from players account.
 }
+Bindings.getScriptEngine().put("spongeEconomyWithdraw",spongeEconomyWithdraw);
 
 //Sponge Economy Balance: uuid is event.player.getUUID()
-function spongeEconomyWithdraw(uuid){
+function spongeEconomyBalance(uuid){
     var account = EconomyService.getOrCreateAccount(UUID.fromString(uuid)) //gets Economy Account for the Player.
 
         account.get().getBalance(currency) //check the amount of a players account.
 }
+Bindings.getScriptEngine().put("spongeEconomyBalance",spongeEconomyBalance);
