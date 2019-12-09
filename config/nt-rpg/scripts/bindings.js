@@ -34,7 +34,6 @@ function spongeEconomyDeposit(uuid,value){
     var cause = Sponge.getCauseStackManager().getCurrentCause() //gets the Cause Manager from Sponge
 
         account.get().deposit(currency,value,cause) //deposit amount of value into players account.
-        event.player.message("You found "+value+" Coins") //message player the amount of coins found.
 }
 Bindings.getScriptEngine().put("spongeEconomyDeposit",spongeEconomyDeposit);
 
