@@ -5,17 +5,11 @@ function died(event) {
     var uid = event.source.getUUID(); //get UUID of player that killed the NPC.
     var rng = Math.floor((Math.random() * 100) + 1); //generates a random number between 1 and 100
     var bones = itemService.retrieve("800",1)
-    var pool = itemService.fetch("1")//fetches an item from the itemizer item pool string of pool ID
-
-    function getRandomInt(min,max){
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min + 1)) + min
-    }
+    var pool = itemService.fetch("2")//fetches an item from the itemizer item pool string of pool ID
 
     ///*/// if rng greater than or equal to 30 do some math to get the amount of coins given to the player.
         if(rng >= 30){
-          var econLoot = Math.floor(((Math.random() / 2) * 10) + 3); //generates a number between 3 and 8
+          var econLoot = getRandomInt(3,20) //generates a number between 3 and 8
             spongeEconomyDeposit(uid,econLoot) //Depoist a value into the players account through Sponge Economy Service; see bindings.js for details
             event.source.message("You've received " + econLoot + " coins")
         }

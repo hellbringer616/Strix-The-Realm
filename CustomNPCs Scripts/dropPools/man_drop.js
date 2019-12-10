@@ -6,12 +6,6 @@ function died(event) {
     var rng = Math.floor((Math.random() * 100) + 1); //generates a random number between 1 and 100
     var bones = itemService.retrieve("800",1);
 
-    function getRandomInt(min,max){
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min + 1)) + min
-    }
-
     ///*/// if rng greater than or equal to 30 do some math to get the amount of coins given to the player.
         if(rng >= 30){
               var econLoot = getRandomInt(3,40)
@@ -19,6 +13,7 @@ function died(event) {
                 event.source.message("You've received " + econLoot + " coins")
         }
     ///*///
+    
       //Instanciate the item at the location where the NPC dies
         itemService.instanciate(bones,event.npc.getWorld().getName(),event.npc.getBlockX(),event.npc.getBlockY(),event.npc.getBlockZ()); //create dropped item at location
 }
