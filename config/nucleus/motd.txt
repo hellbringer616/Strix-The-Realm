@@ -1,5 +1,5 @@
 &l&e[[&nWelcome to Strix&r&l&e]]
-&l&cAlpha &2v0.15.6
+&l&cAlpha &2v0.15.7
 &lRun the &3/rules &l&fto view a list of helpful commands
 &rReport all issues to &4Hellbringer616 &r on either &dDiscord &ror &dGitHub
 &l&6SUGGESTIONS WELCOME :: ESPECIALLY WITH SKILLTREES
