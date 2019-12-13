@@ -25,10 +25,16 @@ function clicked(event){
   }
 
   var classLevel = classData.getLevel(); //gets level from defined Character Class
-  if(classLevel < requiredLevel){
+  if(classLevel < requiredLevel){ //checks if ClassLevel is less than required level
       event.player.message("&eYou must be at least level &c"+requiredLevel+" &eto mine.");
       return;
   }
+
+  //if durability is equal to or less than 0
+  if(durability <= 0){
+      event.player.message("&eYou cannot mine this right now."); //does not work
+      return
+    }
 
 
   var heldItem = event.player.mainhandItem.displayName; //return the display name of a held item
@@ -36,7 +42,7 @@ function clicked(event){
   var isIronPick = heldItem.indexOf("Iron Pick") != -1; //checks if held item has the display name of "Iron Pick"
   var isSteelPick = heldItem.indexOf("Steel Pick") != -1; //checks if held item has the display name of "Steel Pick"
   var isMithrilPick = heldItem.indexOf("Mithril Pick") != -1; //checks if held item has the display name of "Mithril Pick"
-  var playerName = event.player.getName();
+  var playerName = event.player.getName(); //gets the players name
 
 
 function mining(multi){
@@ -54,11 +60,11 @@ function mining(multi){
     ///*** function that runs once a block is "mined"
 function isMined(mined){
       var doubleOreChance = (Math.random());
-      //If doubleOreCheck is true give player two items. else only give player one.
+      //If doubleOreCheck is true and classLevel is greater than or equal to bonusOreLevel and give player two items. else only give player one.
       if(doubleOreChance >= 0.95 && classLevel >= bonusOreLevel){
         event.block.executeCommand(loot + playerName); //retrieve itemizer item of quantity and give to player
         event.block.executeCommand(loot + playerName); //retrieve itemizer item of quantity and give to player
-        event.player.message("&eYou received double Ore!")
+        event.player.message("&eYou received double Ore!");
       }else{
         event.block.executeCommand(loot + playerName); //retrieve itemizer item of quantity and give to player
   }
@@ -70,31 +76,29 @@ function isMined(mined){
         if(event.block.timers.has(1)){
           event.block.timers.stop(1);
         }
-      event.block.timers.start(1, time, false); //sets a timer that executes a function after 1 minute
+      event.block.timers.start(1, time, false); //sets a timer that executes a function when time runs out.
     }
     ///***///
 
-      //if durability is less than 1 change model to stone and starts a timer
-      if(durability <= 0){
-          event.player.message("&eYou cannot mine this right now."); //does not work
-        }else{
-            //** Checks which pickaxe the player is holding and adjusts damage accordingly based on class level and pickaxe type.
-            if (isBronzePick){
-              mining(1)
-            }
-            if (isIronPick){
-              mining(1.1)
-            }
-            if (isSteelPick){
-              mining(1.15)
-            }
-            if (isMithrilPick){
-              mining(1.2)
-            }
-            //**//
-      }
+
+    //** Checks which pickaxe the player is holding and adjusts damage accordingly based on class level and pickaxe type.
+    if (isBronzePick){
+      mining(1)
+    }
+    if (isIronPick){
+      mining(1.1)
+    }
+    if (isSteelPick){
+      mining(1.15)
+    }
+    if (isMithrilPick){
+      mining(1.2)
+    }
+    //**//
   }
-//after the timer is triggered; sets the block texture to Granite and sets durability back to 20
+
+
+//after the timer is triggered; sets the block texture and sets durability back to maximum
 function timer(event){
   var data = event.block.tempdata
 
