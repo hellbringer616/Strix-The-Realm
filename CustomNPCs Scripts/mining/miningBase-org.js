@@ -1,35 +1,24 @@
+var RpgPlugin = Java.type("cz.neumimto.rpg.sponge.NtRpgPlugin"); //load NT-RPG API
+var JavaUUID = Java.type('java.util.UUID'); //Magic?
 //When block is left clicked
 function clicked(event){
   var uid = event.player.getUUID(); //Get Player UUID string
 
   //** NT-RPG stuff
-  var character = RpgPlugin.GlobalScope.characterService.getCharacter(UUID.fromString(uid)); //load NT-RPG Character service and get UUID than convert to Java UUID
+  var character = RpgPlugin.GlobalScope.characterService.getCharacter(JavaUUID.fromString(uid)); //load NT-RPG Character service and get UUID than convert to Java UUID
   var className = "Metallurgy"; //must be a string
-  var classData = character.getClasses().get(className); //gets class data from character
+  var classData = character.getClasses().get(className) //gets class data from character
   //**//
 
   //*** load config from initialized tempdata found in ore_<name>_config.js
-  var data = event.block.tempdata;
-
-  var durability = data.get("durability");
-  var loot = data.get("loot");
-  var time = data.get("time");
-  var requiredLevel = data.get("requiredLevel");
-  var bonusOreLevel = data.get("bonusOreLevel");
-  var xP = data.get("xP");
+  var maxDurability = event.block.tempdata.get("maxDurability")
+  event.block.tempdata.put("durability",maxDurability);
+  var loot = event.block.tempdata.get("loot");
+  var time = event.block.tempdata.get("time");
+  var requiredLevel = event.block.tempdata.get("requiredLevel");
+  var bonusOreLevel = event.block.tempdata.get("bonusOreLevel");
+  var xP = event.block.tempdata.get("xP");
   //***//
-
-  if(classData === null) { //checks if classData returns null
-      event.player.message("&cYOU ARE NOT IN A CLASS");
-      return;
-  }
-
-  var classLevel = classData.getLevel(); //gets level from defined Character Class
-  if(classLevel < requiredLevel){
-      event.player.message("&eYou must be at least level &c"+requiredLevel+" &eto mine.");
-      return;
-  }
-
 
   var heldItem = event.player.mainhandItem.displayName; //return the display name of a held item
   var isBronzePick = heldItem.indexOf("Bronze Pick") != -1; //checks if held item has the display name of "bronze Pick"
@@ -40,19 +29,20 @@ function clicked(event){
 
 
 function mining(multi){
-      var damage = 1+(classLevel/10)*multi;
-      var durability = data.get("durability");
-      var durability = durability - damage;
-        data.put("durability",durability);
-        event.player.playSound("minecraft:block.anvil.land",1 ,1);
-
-        if(durability <= 0){
+  var damage = 1+(classLevel/10)*multi;
+  var durability = event.block.tempdata.get("durability");
+  var durability = durability - damage;
+    event.block.tempdata.put("durability",durability);
+    event.player.playSound("minecraft:block.anvil.land",1 ,1);
+      if(durability <= 0){
         isMined();
-        }
+      }
 }
+  if(classData !== null) { //checks if classData returns null
+    var classLevel = classData.getLevel(); //gets level from defined Character Class
 
     ///*** function that runs once a block is "mined"
-function isMined(mined){
+    function isMined(mined){
       var doubleOreChance = (Math.random());
       //If doubleOreCheck is true give player two items. else only give player one.
       if(doubleOreChance >= 0.95 && classLevel >= bonusOreLevel){
@@ -61,7 +51,7 @@ function isMined(mined){
         event.player.message("&eYou received double Ore!")
       }else{
         event.block.executeCommand(loot + playerName); //retrieve itemizer item of quantity and give to player
-  }
+      }
 
       event.player.playSound("minecraft:block.anvil.use",1 ,1);
       event.block.executeCommand("nadmin exp add " + playerName + " " + xP + " " + " metallurgy metallurgy") //execute command to add experience to a class
@@ -78,8 +68,10 @@ function isMined(mined){
       if(durability <= 0){
           event.player.message("&eYou cannot mine this right now."); //does not work
         }else{
+          //* checks to see if the item is a pickaxe; otherwise tells the player they cannot mine
+        if (classLevel >= requiredLevel){
             //** Checks which pickaxe the player is holding and adjusts damage accordingly based on class level and pickaxe type.
-            if (isBronzePick){
+          if (isBronzePick){
               mining(1)
             }
             if (isIronPick){
@@ -92,19 +84,23 @@ function isMined(mined){
               mining(1.2)
             }
             //**//
+        }else{
+        event.player.message("&eYou must be at least level &c"+requiredLevel+" &eto mine.");
+        //*//
+        }
       }
+  }else{
+    event.player.message("&cYOU ARE NOT IN A CLASS")
   }
+}
 //after the timer is triggered; sets the block texture to Granite and sets durability back to 20
 function timer(event){
-  var data = event.block.tempdata
-
-  var model = data.get("model");
-  var texture = data.get("texture");
-  var maxDurability = data.get("maxDurability");
+  var model = event.block.tempdata.get("model");
+  var texture = event.block.tempdata.get("texture");
+  var maxDurability = event.block.tempdata.get("maxDurability");
   var durability = maxDurability;
-
      event.block.setModel(model);
      event.block.model.setItemDamage(texture);
-     data.put("durability",durability);
+     event.block.tempdata.put("durability",durability);
      event.block.timers.stop(1);
 }
