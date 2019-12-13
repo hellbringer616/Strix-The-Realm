@@ -2,6 +2,6 @@
 book {
     bookName=Sanguine Swamp
     bookPages=[
-        "§l   The Sanguine Swamp\n\nI can start this quest by speaking to §cCaptain Merys §rin Heros Landing.\n\n\n§c§oRequirements:\n\n§cCombat level above 5 strongly recommended.\n§cLevel 4 Metallurgy"
+        "§l   The Sanguine Swamp\n\nI can start this quest by speaking to §cCaptain Merys §rin Heros Landing.\n\n\n§c§oRequirements:\n\n§cCombat level above 5 strongly recommended.\n§cLevel 8 Metallurgy"
     ]
 }
