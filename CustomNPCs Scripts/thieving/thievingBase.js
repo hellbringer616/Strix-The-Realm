@@ -18,7 +18,7 @@ function interact(event) {
 
       var requiredLevel = event.npc.tempdata.get("requiredLevel") //level required to steal from event.npc.tempdata.put()
       var classLevel = classData.getLevel(); //returns Class Level from Class Data
-        if(classLevel >= requiredLevel){ //checks if the player meets requiredLevel
+        if(classLevel < requiredLevel){ //checks if the player meets requiredLevel
           event.player.message("&eYou must be at least level " + "&4" + requiredLevel + " &eto steal");
           return;
         }
