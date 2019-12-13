@@ -11,8 +11,6 @@ function clicked(event){
   //**//
 
   //*** load config from initialized tempdata found in ore_<name>_config.js
-  var model = event.block.tempdata.get("model");
-  var texture = event.block.tempdata.get("texture");
   var durability = event.block.tempdata.get("maxDurability");
   var loot = event.block.tempdata.get("loot");
   var time =event.block.tempdata.get("time");
@@ -31,7 +29,7 @@ function clicked(event){
 
 function mining(multi){
   var damage = 1+(classLevel/10)*multi;
-  var durability = event.block.tempdata.get("durability");
+  var durability = event.block.tempdata.get("maxDurability");
   var durability = durability - damage;
     event.block.tempdata.put("durability",durability);
     event.player.playSound("minecraft:block.anvil.land",1 ,1);
