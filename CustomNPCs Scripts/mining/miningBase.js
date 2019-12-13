@@ -33,7 +33,7 @@ function clicked(event){
   //if durability is equal to or less than 0
   if(durability <= 0){
       event.player.message("&eYou cannot mine this right now."); //does not work
-      return
+      return;
     }
 
 
@@ -83,16 +83,16 @@ function isMined(mined){
 
     //** Checks which pickaxe the player is holding and adjusts damage accordingly based on class level and pickaxe type.
     if (isBronzePick){
-      mining(1)
+      mining(1);
     }
     if (isIronPick){
-      mining(1.1)
+      mining(1.1);
     }
     if (isSteelPick){
-      mining(1.15)
+      mining(1.15);
     }
     if (isMithrilPick){
-      mining(1.2)
+      mining(1.2);
     }
     //**//
   }
@@ -100,7 +100,7 @@ function isMined(mined){
 
 //after the timer is triggered; sets the block texture and sets durability back to maximum
 function timer(event){
-  var data = event.block.tempdata
+  var data = event.block.tempdata;
 
   var model = data.get("model");
   var texture = data.get("texture");
