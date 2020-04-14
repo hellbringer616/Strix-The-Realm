@@ -11,6 +11,7 @@ Bindings.getScriptEngine().put("UUID", Java.type("java.util.UUID"));
 Bindings.getScriptEngine().put("BigDecimal", Java.type("java.math.BigDecimal"));
 
 // sponge things
+var timeunits = Java.type("java.util.concurrent.TimeUnit");
 var sponge = Java.type("org.spongepowered.api.Sponge");
 Bindings.getScriptEngine().put("Sponge", sponge);
         sponge.getScheduler()
