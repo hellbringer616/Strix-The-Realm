@@ -1,5 +1,5 @@
 //loads NTRPG Plugin
-var RpgPlugin = Java.type("cz.neumimto.rpg.sponge.NtRpgPlugin");
+var RpgPlugin = Java.type("cz.neumimto.rpg.sponge.SpongeRpgPlugin");
 //On interact with NPC
 function interact(event) {
   var isStunned = event.player.getPotionEffect(2) === 6 //creates status "stunned" by inflecting player with slowness strength 6
