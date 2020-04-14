@@ -12,15 +12,7 @@ Bindings.getScriptEngine().put("BigDecimal", Java.type("java.math.BigDecimal"));
 
 // sponge things
 Bindings.getScriptEngine().put("Sponge", Java.type("org.spongepowered.api.Sponge"));
-var timeunits =Java.type("java.util.concurrent.TimeUnit");
-var sponge = Java.type("org.spongepowered.api.Sponge");
-Bindings.getScriptEngine().put("Sponge", sponge);
-        sponge.getScheduler()
-                .createTaskBuilder()
-                .delay(3000, timeunits.MILLISECONDS)
-                ["execute(Runnable)"](function (t) {
 Bindings.getScriptEngine().put("EconomyService",Sponge.getServiceManager().provideUnchecked(Java.type("org.spongepowered.api.service.economy.EconomyService").class));
-        }).submit(RpgPlugin.GlobalScope.plugin);
 
 // nt-rpg things
 Bindings.getScriptEngine().put("RpgPlugin", Java.type("cz.neumimto.rpg.sponge.SpongeRpgPlugin"));
