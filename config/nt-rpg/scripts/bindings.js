@@ -12,11 +12,14 @@ Bindings.getScriptEngine().put("BigDecimal", Java.type("java.math.BigDecimal"));
 
 // sponge things
 Bindings.getScriptEngine().put("Sponge", Java.type("org.spongepowered.api.Sponge"));
-Bindings.getScriptEngine().put("EconomyService",Sponge.getServiceManager().provideUnchecked(Java.type("org.spongepowered.api.service.economy.EconomyService").class))
+Bindings.getScriptEngine().put("EconomyService",Sponge.getServiceManager().provideUnchecked(Java.type("org.spongepowered.api.service.economy.EconomyService").class));
 
 // nt-rpg things
 Bindings.getScriptEngine().put("RpgPlugin", Java.type("cz.neumimto.rpg.sponge.NtRpgPlugin"));
 Bindings.getScriptEngine().put("GlobalScope", RpgPlugin.GlobalScope);
+
+// itemizer things
+Bindings.getScriptEngine().put("itemizerItemService", Sponge.getServiceManager().provideUnchecked(Java.type("com.onaple.itemizer.service.IItemService").class));
 
 //random number between numbers generator
 function getRandomInt(min,max){
