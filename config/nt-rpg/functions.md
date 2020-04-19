@@ -1,3 +1,49 @@
+###### Puts a task into a scheduled execution
+
+
+```javascript
+delay(function() { ... }, delay)
+```
+
+
+- Parameters:
+
+    * function - code to run later
+    * delay - time in milliseconds
+
+
+
+###### Returns a list of nearby allies
+
+
+```javascript
+var list = nearby_allies(entity, radius)
+```
+
+
+- Parameters:
+
+    * entity - allies for the entity
+    * radius
+
+
+
+###### Returns current enemy entity in crosshair
+
+
+```javascript
+var target = targeted_enemy(entity, range)
+```
+
+
+- Parameters:
+
+    * entity - An entity which we search for its enemies
+    * range - Maximal search range
+    * @returns - An entity instance or null
+
+
+
 ###### Changes default value of a property. Must be called during pre initialization (within scripts folder) in order to have any affect. 
 
 
@@ -10,22 +56,6 @@ set_property_default_value("my_property_mult", 0);
 
     * string - property name
     * float - default value
-
-
-
-###### Returns a list of nearby allies
-
-
-```javascript
-for_each_nearby_ally(entity, radius, new Consumer() { apply: function(ally} { ... } )
-```
-
-
-- Parameters:
-
-    * entity - allies for the entity
-    * radius
-    * allyEntity - callback
 
 
 
@@ -243,21 +273,6 @@ var textList = to_multiline_text("&aFirst Line:nSecondLine")
 
 
 
-###### Puts a task into a scheduled execution
-
-
-```javascript
-delay(function() { ... }, delay)
-```
-
-
-- Parameters:
-
-    * function - code to run later
-    * delay - time in milliseconds
-
-
-
 ###### Do action for every nearby enemy
 
 
@@ -278,7 +293,7 @@ for_each_nearby_enemy(entity, radius, new Consumer() { apply: function(entity} {
 
 
 ```javascript
-var list = nearby_allies(entity, radius)
+for_each_nearby_ally(entity, radius, new Consumer() { apply: function(ally} { ... } )
 ```
 
 
@@ -286,22 +301,7 @@ var list = nearby_allies(entity, radius)
 
     * entity - allies for the entity
     * radius
-
-
-
-###### Returns current enemy entity in crosshair
-
-
-```javascript
-var target = targeted_enemy(entity, range)
-```
-
-
-- Parameters:
-
-    * entity - An entity which we search for its enemies
-    * range - Maximal search range
-    * @returns - An entity instance or null
+    * allyEntity - callback
 
 
 

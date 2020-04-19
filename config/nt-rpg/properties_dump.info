@@ -42,7 +42,6 @@ reserved_mana
 reserved_mana_mult
 scythes_damage_bonus
 scythes_damage_mult
-stun_duration_mult
 tools_damage_bonus
 walk_speed
 weapon_damage_bonus

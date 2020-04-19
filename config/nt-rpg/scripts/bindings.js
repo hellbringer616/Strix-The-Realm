@@ -12,7 +12,6 @@ Bindings.getScriptEngine().put("BigDecimal", Java.type("java.math.BigDecimal"));
 
 // sponge things
 Bindings.getScriptEngine().put("Sponge", Java.type("org.spongepowered.api.Sponge"));
-Bindings.getScriptEngine().put("EconomyService",Sponge.getServiceManager().provideUnchecked(Java.type("org.spongepowered.api.service.economy.EconomyService").class));
 
 // nt-rpg things
 Bindings.getScriptEngine().put("RpgPlugin", Java.type("cz.neumimto.rpg.sponge.SpongeRpgPlugin"));
@@ -58,3 +57,31 @@ function spongeEconomyBalance(uuid){
         account.get().getBalance(currency) //check the amount of a players account.
 }
 Bindings.getScriptEngine().put("spongeEconomyBalance",spongeEconomyBalance);
+
+
+var eventListener = new (Java.extend(Consumer, {
+    accept: function (event) {
+        Bindings.getScriptEngine().put("EconomyService",Sponge.getServiceManager().provideUnchecked(Java.type("org.spongepowered.api.service.economy.EconomyService").class));
+    }
+}));
+
+registerEventListener({
+    type: Java.type("org.spongepowered.api.event.game.state.GameStartedServerEvent"),
+    consumer: eventListener
+})
+
+function processItemizerItemCost(caster, hasItemId1, hasItemId2, expAmount, classOrSource, craftArray, craftArray2) {
+    var player = caster.getEntity();
+    var playerName = caster.getPlayer().getName()
+    //Tests begin here. Assume that player inventory is empty
+
+    var console = Sponge.getServer().getConsole();
+    if(Itemizer.hasItemizerItem(player, hasItemId1, hasItemId2)) {
+        Sponge.getCommandManager().process(console, "nadmin exp add " + playerName + " " + expAmount + " " + classOrSource);
+    
+    }else{
+        Sponge.getCommandManager().process(console, "tell " + playerName + " You do not have the required items");
+    }
+    Itemizer.craft(player, craftArray, craftArray2);
+}
+Bindings.getScriptEngine().put("processItemizerItemCost",processItemizerItemCost);
