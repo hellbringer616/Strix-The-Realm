@@ -5,7 +5,7 @@ function interact(event) {
   var uid = event.player.getUUID(); //Get Player UUID string
   var character = RpgApi.getCharacterService().getCharacter(UUID.fromString(uid)) //load NT-RPG Character service and get UUID than convert to Java UUID
 
-  var classData = character.getClassByName(ClassName) //gets class data from character
+  var classData = character.getClassByName(className) //gets class data from character
     if(classData === null){
       event.player.message("&cYOU ARE NOT IN A CLASS");
       return;
