@@ -24,6 +24,6 @@ function died(event) {
         //runs a command to add exp to the players class a number of times equal to the lenth of the array.
         for(var i = 0; i < playerArray.length; i++) {
         var xp = npcExp / playerArray.length;
-        event.npc.executeCommand("nadmin exp add " +  playerArray[i] + " " + xp + " PVE Combat");
+        event.npc.executeCommand("nadmin exp " +  playerArray[i] + " " + xp + " PVE Combat");
   }
 }

@@ -1,11 +1,7 @@
 //this is a player script and will not function if run anywhere other than the player
-var RpgPlugin = Java.type("cz.neumimto.rpg.sponge.NtRpgPlugin");
-var JavaUUID = Java.type('java.util.UUID'); //Magic?
-
-
 function interact(event){
   var uid = event.player.getUUID(); //Get Player UUID string
-  var character = RpgApi.getCharacterService.getCharacter(JavaUUID.fromString(uid)); //load NT-RPG Character service and get UUID than convert to Java UUID
+  var character = RpgApi.getCharacterService().getCharacter(UUID.fromString(uid)); //load NT-RPG Character service and get UUID than convert to Java UUID
   event.player.tempdata.put("character",character);
   var playerName = event.player.getName();
   event.player.tempdata.put("playerName",playerName);

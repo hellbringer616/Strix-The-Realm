@@ -3,7 +3,7 @@ function clicked(event){
   var uid = event.player.getUUID(); //Get Player UUID string
 
   //** NT-RPG stuff
-  var character = RpgApi.getCharacterService.getCharacter(UUID.fromString(uid)); //load NT-RPG Character service and get UUID than convert to Java UUID
+  var character = RpgApi.getCharacterService().getCharacter(UUID.fromString(uid)); //load NT-RPG Character service and get UUID than convert to Java UUID
   var className = "Metallurgy"; //must be a string
   var classData = character.getClassByName(className); //gets class data from character
   //**//

@@ -31,7 +31,7 @@ function interact(event){
   //**//if the player is sneaking and has either the active quest or has completed the quest
     if(sneak && event.player.hasActiveQuest(15) || sneak && event.player.hasFinishedQuest(15)){
       var uid = event.player.getUUID(); //Get Player UUID string
-      var character = RpgApi.getCharacterService.getCharacter(JavaUUID.fromString(uid)); //load NT-RPG Character service and get UUID than convert to Java UUID
+      var character = RpgApi.getCharacterService().getCharacter(UUID.fromString(uid)); //load NT-RPG Character service and get UUID than convert to Java UUID
       var classData = character.getClasses().get("Thieving"); //gets Thieving class data from character
       var classLevel = classData.getLevel(); //returns Class Level from Class Data
       var requiredLevel = 4;
