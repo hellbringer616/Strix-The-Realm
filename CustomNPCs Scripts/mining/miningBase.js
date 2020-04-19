@@ -70,7 +70,7 @@ function isMined(mined){
   }
 
       event.player.playSound("minecraft:block.anvil.use",1 ,1);
-      event.block.executeCommand("nadmin exp add " + playerName + " " + xP + " " + " metallurgy metallurgy") //execute command to add experience to a class
+      event.block.executeCommand("nadmin exp " + playerName + " " + xP + " " + " metallurgy") //execute command to add experience to a class
       event.block.setModel("minecraft:stone"); //set block model to regular stone. NOTE: Does not work with Optifine.
       //checks to see if there is a timer of 1 and stops it if there is one.
         if(event.block.timers.has(1)){

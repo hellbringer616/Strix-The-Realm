@@ -15,8 +15,8 @@ Bindings.getScriptEngine().put("Sponge", Java.type("org.spongepowered.api.Sponge
 
 // nt-rpg things
 Bindings.getScriptEngine().put("RpgPlugin", Java.type("cz.neumimto.rpg.sponge.SpongeRpgPlugin"));
+Bindings.getScriptEngine().put("GlobalScope", RpgPlugin.GlobalScope); Depricated
 Bindings.getScriptEngine().put("RpgApi", Java.type("cz.neumimto.rpg.api.Rpg").get());
-//Bindings.getScriptEngine().put("GlobalScope", RpgPlugin.GlobalScope); Depricated
 
 // itemizer things
 Bindings.getScriptEngine().put("itemizerItemService", Sponge.getServiceManager().provideUnchecked(Java.type("com.onaple.itemizer.service.IItemService").class));

@@ -36,7 +36,7 @@ function interact(event) {
               spongeEconomyDeposit(uid,econLoot) //Depoist a value into the players account through Sponge Economy Service; see bindings.js for details
               //var loot = event.npc.tempdata.get("loot");
               //event.npc.executeCommand(loot + playerName); //retrieve itemizer item of quantity and give to player
-              event.npc.executeCommand("nadmin exp add " + playerName + " " + xP + " " + className + " " + className); //gives the player theiving XP
+              event.npc.executeCommand("nadmin exp " + playerName + " " + xP + " " + className + " "); //gives the player theiving XP
               event.player.message("&eYou have stolen " + "&c" + econLoot + " &ecoins.");
           }else{
             var caughtResponse = event.npc.tempdata.get("caughtResponse") //gets caughtResponse from event.npc.tempdata.put()
