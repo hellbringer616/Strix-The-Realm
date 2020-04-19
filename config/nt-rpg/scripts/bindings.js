@@ -15,7 +15,9 @@ Bindings.getScriptEngine().put("Sponge", Java.type("org.spongepowered.api.Sponge
 
 // nt-rpg things
 Bindings.getScriptEngine().put("RpgPlugin", Java.type("cz.neumimto.rpg.sponge.SpongeRpgPlugin"));
-Bindings.getScriptEngine().put("GlobalScope", RpgPlugin.GlobalScope);
+Bindings.getScriptEngine().put("RpgApi", Java.type("cz.neumimto.rpg.api.Rpg").get();
+Bindings.getScriptEngine().put("RpgCharacter", RpgApi.getCharacterService().getCharacter());
+//Bindings.getScriptEngine().put("GlobalScope", RpgPlugin.GlobalScope); Depricated
 
 // itemizer things
 Bindings.getScriptEngine().put("itemizerItemService", Sponge.getServiceManager().provideUnchecked(Java.type("com.onaple.itemizer.service.IItemService").class));
@@ -78,7 +80,7 @@ function processItemizerItemCost(caster, hasItemId1, hasItemId2, expAmount, clas
     var console = Sponge.getServer().getConsole();
     if(Itemizer.hasItemizerItem(player, hasItemId1, hasItemId2)) {
         Sponge.getCommandManager().process(console, "nadmin exp add " + playerName + " " + expAmount + " " + classOrSource);
-    
+
     }else{
         Sponge.getCommandManager().process(console, "tell " + playerName + " You do not have the required items");
     }

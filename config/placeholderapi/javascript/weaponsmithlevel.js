@@ -5,7 +5,7 @@ var RpgApi = Java.type("cz.neumimto.rpg.api.Rpg").get();
   var className = "Weaponsmith" //must be a string
   var uid = player.getUniqueId(); //Get Player UUID
   var character = RpgApi.getCharacterService().getCharacter(uid); //load NT-RPG Character service and get UUID for player
-  var classData = character.getClasses().get(className); //gets class data from character
+  var classData = character.getClassByName(className); //gets class data from character
   if(classData !== null) { //checks if classData returns null
     var out = classData.getLevel();
 

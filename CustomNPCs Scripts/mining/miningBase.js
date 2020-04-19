@@ -3,9 +3,9 @@ function clicked(event){
   var uid = event.player.getUUID(); //Get Player UUID string
 
   //** NT-RPG stuff
-  var character = RpgPlugin.GlobalScope.characterService.getCharacter(UUID.fromString(uid)); //load NT-RPG Character service and get UUID than convert to Java UUID
+  var character = RpgApi.getCharacterService.getCharacter(UUID.fromString(uid)); //load NT-RPG Character service and get UUID than convert to Java UUID
   var className = "Metallurgy"; //must be a string
-  var classData = character.getClasses().get(className); //gets class data from character
+  var classData = character.getClassByName(className); //gets class data from character
   //**//
 
   //*** load config from initialized tempdata found in ore_<name>_config.js

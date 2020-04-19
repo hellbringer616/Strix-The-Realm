@@ -5,9 +5,9 @@ function interact(event) {
   var isStunned = event.player.getPotionEffect(2) === 6 //creates status "stunned" by inflecting player with slowness strength 6
   var className = "Thieving" //must be a string
   var uid = event.player.getUUID(); //Get Player UUID string
-  var character = RpgPlugin.GlobalScope.characterService.getCharacter(UUID.fromString(uid)) //load NT-RPG Character service and get UUID than convert to Java UUID
+  var character = RpgApi.getCharacterService.getCharacter(UUID.fromString(uid)) //load NT-RPG Character service and get UUID than convert to Java UUID
 
-  var classData = character.getClasses().get(className) //gets class data from character
+  var classData = character.getClassByName(ClassName) //gets class data from character
     if(classData === null){
       event.player.message("&cYOU ARE NOT IN A CLASS");
       return;
