@@ -14,10 +14,10 @@ function died(event) {
     ///*///
 
       //Instanciate the item at the location where the NPC dies
-        itemizerItemService.instanciate(bones,event.npc.getWorld().getName(),event.npc.getBlockX(),event.npc.getBlockY(),event.npc.getBlockZ()); //create dropped item at location
+        itemizerItemService.instanciate(bones.get(),event.npc.getWorld().getName(),event.npc.getBlockX(),event.npc.getBlockY(),event.npc.getBlockZ()); //create dropped item at location
 
       //checks if pool0 returns an item, if yes perform item drop.
-        if(pool0){
+        if(pool0.isOptional()){
           itemizerItemService.instanciate(pool0,event.npc.getWorld().getName(),event.npc.getBlockX(),event.npc.getBlockY(),event.npc.getBlockZ()); //create dropped item at location
         }
 }
