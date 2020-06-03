@@ -26,9 +26,10 @@ Bindings.getScriptEngine().put("itemizerItemService", Sponge.getServiceManager()
 function getRandomInt(min,max){
     min = Math.ceil(min);
     max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min
+      return Math.floor(Math.random() * (max - min + 1)) + min
 }
 Bindings.getScriptEngine().put("getRandomInt",getRandomInt);
+
 
 //Sponge Economy Depoist: uuid is event.player.getUUID(), value is any integer
 function spongeEconomyDeposit(uuid,value){
@@ -41,6 +42,7 @@ function spongeEconomyDeposit(uuid,value){
 }
 Bindings.getScriptEngine().put("spongeEconomyDeposit",spongeEconomyDeposit);
 
+
 //Sponge Economy Withdraw: uuid is event.player.getUUID(), value is any integer
 function spongeEconomyWithdraw(uuid,value){
     var account = EconomyService.getOrCreateAccount(UUID.fromString(uuid)) //gets Economy Account for the Player.
@@ -52,6 +54,7 @@ function spongeEconomyWithdraw(uuid,value){
 }
 Bindings.getScriptEngine().put("spongeEconomyWithdraw",spongeEconomyWithdraw);
 
+
 //Sponge Economy Balance: uuid is event.player.getUUID()
 function spongeEconomyBalance(uuid){
     var account = EconomyService.getOrCreateAccount(UUID.fromString(uuid)) //gets Economy Account for the Player.
@@ -61,20 +64,25 @@ function spongeEconomyBalance(uuid){
 Bindings.getScriptEngine().put("spongeEconomyBalance",spongeEconomyBalance);
 
 
+
 var eventListener = new (Java.extend(Consumer, {
     accept: function (event) {
         Bindings.getScriptEngine().put("EconomyService",Sponge.getServiceManager().provideUnchecked(Java.type("org.spongepowered.api.service.economy.EconomyService").class));
     }
 }));
 
+
+
 registerEventListener({
     type: Java.type("org.spongepowered.api.event.game.state.GameStartedServerEvent"),
     consumer: eventListener
 })
 
+
+
 function processItemizerItemCost(caster, hasItemId1, hasItemId2, expAmount, classOrSource, craftArray, craftArray2) {
-    var player = caster.getEntity();
-    var playerName = caster.getPlayer().getName()
+    var player = character.getEntity();
+    var playerName = character.getPlayer().getName()
     //Tests begin here. Assume that player inventory is empty
 
     var console = Sponge.getServer().getConsole();
